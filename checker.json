@@ -1,0 +1,2312 @@
+[
+    {
+        "charToFlag": "畫",
+        "suggestion": "劃",
+        "description": "動詞情境，如：規劃、劃分、劃時代，建議用「劃」。名詞或表描繪時用「畫」，如：計畫、刻畫、圖畫。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "裏",
+        "suggestion": "裡",
+        "description": "建議用「裡」（如：這裡、不明就裡）。「裏」為香港用法，除非特殊目的，否則建議改用「裡」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "賬",
+        "suggestion": "帳",
+        "description": "建議用「帳」（如：帳簿，多用於錢財）。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "咨",
+        "suggestion": "諮",
+        "description": "表示諮詢時，建議用「諮」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "渡",
+        "suggestion": "度",
+        "description": "表示「過日子」時，建議用「度」（如：度假）。表示「跨越」時用「渡」（如：過渡時期）。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "份",
+        "suggestion": "分",
+        "description": "用於「身分」、「成分」、「天分」、「部分」、「分量」、「充分」、「過分」、「認分」、「知識分子」等，建議用「分」。表示單位量詞時用「份」（如：一份報紙）。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "反饋",
+        "suggestion": "回饋",
+        "description": "建議用「回饋」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "鍊",
+        "suggestion": "鏈",
+        "description": "用於產業鏈、區塊鏈等，建議用「鏈」。修「練」、鍛「鍊」等用「鍊」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "佔",
+        "suggestion": "占",
+        "description": "用於占有、占據、占領、市占率、占便宜等，建議用「占」。特定專有名詞（如「佔中三子」）可保留。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "週",
+        "suggestion": "周",
+        "description": "表示「周圍」、「周全」、「周延」、「周邊」等義時，建議用「周」。表示「星期」（如：週刊、週一）、「週期」、「週年」時，建議用「週」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "煙",
+        "suggestion": "菸",
+        "description": "指香菸、電子菸、加熱菸等製品時，法令或統一用「菸」。指「煙霧」時用「煙」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "污",
+        "suggestion": "汙",
+        "description": "建議用「汙」（如：汙染、汙名化），「污」是異體字。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "佈",
+        "suggestion": "布",
+        "description": "用於公布、宣布、發布、分布、布局、布置、布告欄等，建議用「布」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "博",
+        "suggestion": "搏",
+        "description": "用於「搏鬥」、「搏取」、「放手一搏」、「脈搏」、「肉搏戰」時，建議用「搏」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "博",
+        "suggestion": "膊",
+        "description": "用於「赤膊」時，建議用「膊」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "揹",
+        "suggestion": "背",
+        "description": "用於「背著背包」、「背離」時，建議用「背」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "般駁",
+        "suggestion": "斑駁",
+        "description": "「斑駁」為正確用法，指色彩混雜不純。常見誤用「般駁」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "般",
+        "suggestion": "斑",
+        "description": "用於「可見一斑」時，建議用「斑」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "板",
+        "suggestion": "闆",
+        "description": "用於「老闆」時，建議用「闆」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "劃",
+        "suggestion": "畫",
+        "description": "用於「比畫」時（揮手比畫），建議用「畫」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "畢挺",
+        "suggestion": "筆挺",
+        "description": "「西裝筆挺」為正確用法，注意「筆」字。常見誤用「畢挺」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "敝",
+        "suggestion": "鄙",
+        "description": "「鄙人」為正確用法，自謙之詞。常見混用「敝人」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "畢",
+        "suggestion": "必",
+        "description": "用於「必恭必敬」時，建議用「必」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "敝",
+        "suggestion": "蓽",
+        "description": "用於「蓽路藍縷」時，建議用「蓽」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "弊",
+        "suggestion": "敝",
+        "description": "用於「凋敝」、「振衰起敝」時，建議用「敝」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "鱉",
+        "suggestion": "鼈",
+        "description": "用於「甕中抓鼈」時，建議用「鼈」(古字/異體)。「鱉」為現代常用字。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "佈署",
+        "suggestion": "部署",
+        "description": "建議用「部署」。常見誤用「佈署」或「部暑」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "步",
+        "suggestion": "部",
+        "description": "用於「三部曲」、「按部就班」時，用「部」。 「按部就班」常誤為「按步就班」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "倍",
+        "suggestion": "備",
+        "description": "用於「備受」時，用「備」(普遍之意)。常誤為「倍受」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "備",
+        "suggestion": "倍",
+        "description": "用於「倍感」(更加感覺)時，用「倍」。常混用「備感」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "迫不急待",
+        "suggestion": "迫不及待",
+        "description": "建議用「迫不及待」。注意「及」字。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "泡製",
+        "suggestion": "炮製",
+        "description": "建議用「如法炮製」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "炮",
+        "suggestion": "砲",
+        "description": "用於「砲彈」時，建議用「砲」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "砰",
+        "suggestion": "怦",
+        "description": "用於「怦然心動」時，建議用「怦」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "彭勃",
+        "suggestion": "蓬勃",
+        "description": "「蓬勃」為正確用法。常見音近誤用「彭勃」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "拼",
+        "suggestion": "拚",
+        "description": "用於「拚命」時，建議用「拚」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "拚",
+        "suggestion": "拼",
+        "description": "用於「拼湊」時，建議用「拼」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "憑添",
+        "suggestion": "平添",
+        "description": "「平添變數」為正確用法。常見誤用「憑添」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "朴",
+        "suggestion": "樸",
+        "description": "用於「樸實無華」時，建議用「樸」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "朴",
+        "suggestion": "璞",
+        "description": "用於「反璞歸真」時，用「璞」。常見誤用「反朴歸真」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "舖",
+        "suggestion": "鋪",
+        "description": "用於「鋪路」時，建議用「鋪」。(店鋪的「鋪」也常寫作「舖」)",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "磨拳擦掌",
+        "suggestion": "摩拳擦掌",
+        "description": "「摩拳擦掌」為正確用法。常見誤用「磨拳擦掌」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "昧昧無聞",
+        "suggestion": "沒沒無聞",
+        "description": "「沒沒無聞」為正確用法。常見混淆「昧昧無聞」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "沒沒無言",
+        "suggestion": "默默無言",
+        "description": "「默默無言」為正確用法。可能混淆「沒沒無言」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "矛",
+        "suggestion": "茅",
+        "description": "用於「名列前茅」時，用「茅」。常見誤用「名列前矛」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "冒",
+        "suggestion": "貿",
+        "description": "用於「貿然」時，建議用「貿」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "謀",
+        "suggestion": "牟",
+        "description": "用於「牟取暴利」時，建議用「牟」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "蠻",
+        "suggestion": "滿",
+        "description": "用於「滿不錯的」時，建議用「滿」，避免用「蠻」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "矇",
+        "suggestion": "蒙",
+        "description": "用於「蒙蔽」時，建議用「蒙」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "蒙",
+        "suggestion": "矇",
+        "description": "用於「黑矇矇」時，建議用「矇」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "蒙",
+        "suggestion": "濛",
+        "description": "用於「濛濛細雨」時，用「濛」。常見誤用「蒙蒙細雨」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "糜",
+        "suggestion": "靡",
+        "description": "用於「風靡」時，建議用「靡」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "彌",
+        "suggestion": "瀰",
+        "description": "用於「瀰漫」時，建議用「瀰」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "彌",
+        "suggestion": "弭",
+        "description": "用於「消弭」時，用「弭」。常見誤用「消彌」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "秘",
+        "suggestion": "祕",
+        "description": "用於「祕密」、「祕書」、「祕訣」時，建議用「祕」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "莫明其妙",
+        "suggestion": "莫名其妙",
+        "description": "「莫名其妙」為正確用法，注意「名」字。常見誤用「莫明其妙」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "冥",
+        "suggestion": "瞑",
+        "description": "用於「死不瞑目」的「瞑目」時，用「瞑」。常見誤用「死不冥目」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "碼",
+        "suggestion": "馬",
+        "description": "用於「馬表」(計時器)時，建議用「馬」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "埋單",
+        "suggestion": "買單",
+        "description": "建議用「買單」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "蕃",
+        "suggestion": "番",
+        "description": "用於「番茄」時，建議用「番」。另「番薯」亦用「番」。「蕃」常用於「蕃衍」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "番",
+        "suggestion": "翻",
+        "description": "用於動詞「翻動」、「翻倍」的「翻」時，用「翻」。如「股價翻了一番」，「翻」為動詞，「番」為量詞。避免動詞「翻」誤作「番」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "奮",
+        "suggestion": "憤",
+        "description": "用於「發憤圖強」時，建議用「憤」。(「發奮」亦可，但「發憤」更強調內心受刺激而奮起)",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "彷",
+        "suggestion": "仿",
+        "description": "用於「仿效」、「模仿」時，用「仿」。常見混用「彷效」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "防",
+        "suggestion": "妨",
+        "description": "用於「妨礙」時，建議用「妨」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "窩峰",
+        "suggestion": "窩蜂",
+        "description": "「一窩蜂」為正確用法。常見誤用「一窩峰」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "蜂湧",
+        "suggestion": "蜂擁",
+        "description": "「蜂擁而至」為正確用法。常見誤用「蜂湧而至」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "鋒",
+        "suggestion": "風",
+        "description": "用於「出風頭」時，建議用「風」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "風",
+        "suggestion": "鋒",
+        "description": "用於「鋒芒」、「衝鋒陷陣」時，建議用「鋒」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "斧",
+        "suggestion": "釜",
+        "description": "用於「破釜沉舟」時，用「釜」。常見誤用「破斧沉舟」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "復",
+        "suggestion": "覆",
+        "description": "用於「答覆」、「反覆」、「重覆」(審查義)時，用「覆」。如「答覆」常誤為「答復」；「反覆」常誤為「反復」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "幅",
+        "suggestion": "副",
+        "description": "用於「一副眼鏡」、「名副其實」時，建議用「副」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "賦",
+        "suggestion": "負",
+        "description": "用於「頗負才情」(享有盛名之意)時，用「負」。常見混用「頗賦才情」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "斐",
+        "suggestion": "菲",
+        "description": "用於「價格不菲」時，建議用「菲」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "代",
+        "suggestion": "待",
+        "description": "用於「等待」、「招待」時，用「待」。 「待人接物」。若指「替代」、「朝代」則用「代」。此處若指「等待」義，則「代」為誤。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "耽",
+        "suggestion": "擔",
+        "description": "用於「擔任」、「擔心」時，用「擔」。常見混用「耽任」、「耽心」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "擔",
+        "suggestion": "耽",
+        "description": "用於「耽誤」、「耽擱」、「耽於逸樂」時，用「耽」。常見混用「擔誤」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "耽",
+        "suggestion": "眈",
+        "description": "用於「虎視眈眈」時，用「眈」。常見誤用「虎視耽耽」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "旦",
+        "suggestion": "膽",
+        "description": "用於「膽識」時，用「膽」。可能因形近或音近誤用，如「旦識」(較少見)或與「單」混淆。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "抵",
+        "suggestion": "牴",
+        "description": "用於「牴觸」時，建議用「牴」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "蒂",
+        "suggestion": "柢",
+        "description": "「根深柢固」的「柢」指樹根。另有「根深蒂固」，「蒂」指瓜果與枝莖相連處。兩者均指基礎牢固，但「根深蒂固」更常用。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "底",
+        "suggestion": "柢",
+        "description": "用於「追根究柢」時，建議用「柢」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "砥",
+        "suggestion": "砥",
+        "description": "用於「中流砥柱」、「砥礪」時，用「砥」。可能與「抵」混淆。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "締",
+        "suggestion": "締",
+        "description": "用於「締造」時，用「締」。可能與「諦」(真諦)混淆。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "諦",
+        "suggestion": "諦",
+        "description": "用於「真諦」時，用「諦」。可能與「締」(締造)混淆。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "彫",
+        "suggestion": "雕",
+        "description": "用於「雕蟲小技」時，用「雕」。「彫」為其異體字。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "凋",
+        "suggestion": "凋",
+        "description": "用於「凋零」時，用「凋」。可能與「調」音近混淆。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "顛",
+        "suggestion": "顛",
+        "description": "用於「顛覆」、「顛簸」時，用「顛」。可能與「巔」(山頂)混淆。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "巔",
+        "suggestion": "巔",
+        "description": "用於「巔峰」時，用「巔」。可能與「顛」(顛倒)混淆。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "定",
+        "suggestion": "訂",
+        "description": "用於「訂約」、「訂定」、「訂購」時，用「訂」。常與「定」(決定、固定)混淆。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "朵怡",
+        "suggestion": "朵頤",
+        "description": "「大快朵頤」為正確用法。常見誤用「大快朵怡」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "臺",
+        "suggestion": "台",
+        "description": "用於「台灣」時，用「台」或「臺」均可，此處依貴公司習慣用「台」。若以「台」為準，「臺」則為另一種寫法。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "它",
+        "suggestion": "他",
+        "description": "指人時用「他」，用於事物時可用「它」。此處「其他」通常指事物，但若公司統一用「他」則依此。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "踏",
+        "suggestion": "蹋",
+        "description": "用於「糟蹋」時，建議用「蹋」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "塌",
+        "suggestion": "塌",
+        "description": "用於「倒塌」時，用「塌」。可能與「踏」混淆。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "遢",
+        "suggestion": "遢",
+        "description": "用於「邋遢」時，用「遢」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "榻",
+        "suggestion": "榻",
+        "description": "用於「榻榻米」、「下榻」時，用「榻」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "挺",
+        "suggestion": "鋌",
+        "description": "用於「鋌而走險」時，建議用「鋌」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "凸",
+        "suggestion": "突",
+        "description": "指抽象事物「突出」時，建議用「突」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "突",
+        "suggestion": "凸",
+        "description": "指具象事物「凸顯」時，建議用「凸」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "陲",
+        "suggestion": "唾",
+        "description": "用於「唾手可得」時，用「唾」。可能因形近誤為「陲手可得」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "通通",
+        "suggestion": "統統",
+        "description": "「統統」為正確用法。常見誤用「通通」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "吶",
+        "suggestion": "訥",
+        "description": "用於「木訥」時，建議用「訥」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "按耐",
+        "suggestion": "按捺",
+        "description": "建議用「按捺不住」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "奈",
+        "suggestion": "耐",
+        "description": "用於「刻苦耐勞」時，用「耐」。可能與「奈」(無奈)混淆。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "拈",
+        "suggestion": "拈",
+        "description": "用於「拈花惹草」時，用「拈」。可能與「粘」混淆。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "唸",
+        "suggestion": "念",
+        "description": "用於「念書」、「想念」時，建議用「念」。(「唸」強調讀出聲)",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "弩",
+        "suggestion": "弩",
+        "description": "用於「劍拔弩張」時，用「弩」。可能與「努」(努力)混淆。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "臘",
+        "suggestion": "蠟",
+        "description": "用於「蠟像」、「蠟燭」時，建議用「蠟」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "蠟",
+        "suggestion": "臘",
+        "description": "用於「臘月」、「臘肉」時，建議用「臘」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "朗朗",
+        "suggestion": "琅琅",
+        "description": "用於「琅琅上口」時，建議用「琅琅」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "利",
+        "suggestion": "力",
+        "description": "用於「自力救濟」時，建議用「力」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "厲",
+        "suggestion": "勵",
+        "description": "用於「勵精圖治」、「鼓勵」時，用「勵」。可能與「厲」(嚴厲)混淆。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "利",
+        "suggestion": "厲",
+        "description": "用於「再接再厲」時，建議用「厲」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "裂",
+        "suggestion": "咧",
+        "description": "用於「咧嘴大笑」時，建議用「咧」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "廖廖",
+        "suggestion": "寥寥",
+        "description": "「寥寥無幾」為正確用法。常見誤用「廖廖無幾」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "聊",
+        "suggestion": "聊",
+        "description": "用於「聊勝於無」時，用「聊」。可能與「僚」(官僚)混淆。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "瞭",
+        "suggestion": "了",
+        "description": "用於「了解」、「一目了然」時，建議用「了」。(「瞭」也可，但「了」更常用)",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "了",
+        "suggestion": "瞭",
+        "description": "用於「明瞭」時，建議用「瞭」。(「明了」亦可)",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "留",
+        "suggestion": "流",
+        "description": "用於「流芳萬古」時，用「流」。常見誤用「留芳萬古」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "流",
+        "suggestion": "留",
+        "description": "用於「留名青史」時，用「留」。常見誤用「流名青史」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "劉覽",
+        "suggestion": "瀏覽",
+        "description": "「瀏覽（器）」為正確用法。可能因輸入法誤為「劉覽」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "連",
+        "suggestion": "聯",
+        "description": "用於「蟬聯」、「聯合」、「聯絡」、「關聯」、「聯繫」、「串聯」時，用「聯」。常與「連接」的「連」混淆。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "聯",
+        "suggestion": "連",
+        "description": "用於「連手」、「連結」、「連續」時，用「連」。常與「聯合」的「聯」混淆。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "林立",
+        "suggestion": "凜冽",
+        "description": "「凜冽」為正確用法。可能誤為「林立」或「凛例」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "樑",
+        "suggestion": "梁",
+        "description": "用於「橋梁」、「棟梁」時，建議用「梁」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "盧",
+        "suggestion": "廬",
+        "description": "用於「初出茅廬」時，用「廬」。常見誤用「初出茅盧」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "略",
+        "suggestion": "掠",
+        "description": "用於「攻掠市場」時，建議用「掠」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "個",
+        "suggestion": "箇",
+        "description": "用於「箇中高手」的「箇中」時，建議用「箇」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "鈎",
+        "suggestion": "勾",
+        "description": "用於「掛勾」、「勾心鬥角」時，用「勾」。「鈎」為「勾」的異體字，多指「鉤子」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "敢",
+        "suggestion": "甘",
+        "description": "用於「甘冒風險」時，用「甘」。常見誤用「敢冒風險」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "杆",
+        "suggestion": "桿",
+        "description": "用於「揮桿」、「旗桿」、「欄桿」時，用「桿」(木字旁)。「杆」(ㄍㄢ, 一槓兩槓的槓)指細長的棍子。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "岡",
+        "suggestion": "崗",
+        "description": "用於「崗位」、「站崗」時，用「崗」(山字旁)。「岡」(ㄍㄤ)指山脊。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "賡",
+        "suggestion": "賡",
+        "description": "用於「賡續」（繼續之意）時，用「賡」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "股",
+        "suggestion": "古",
+        "description": "用於「一古腦兒」時，建議用「古」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "鼓",
+        "suggestion": "鼓",
+        "description": "用於「一鼓作氣」時，用「鼓」。可能與「股」混淆。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "固",
+        "suggestion": "故",
+        "description": "用於「故步自封」時，用「故」。常見誤用「固步自封」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "顧",
+        "suggestion": "雇",
+        "description": "用於「雇主」、「雇員」時，建議用「雇」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "雇",
+        "suggestion": "僱",
+        "description": "用於動詞「聘僱」、「僱用」（依我國法令用法）時，用「僱」。名詞「雇主」用「雇」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "拐",
+        "suggestion": "拐",
+        "description": "用於「誘拐」時，用「拐」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "枴",
+        "suggestion": "枴",
+        "description": "用於「枴杖」時，用「枴」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "攻",
+        "suggestion": "工",
+        "description": "用於「異曲同工」時，用「工」。常見誤用「異曲同攻」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "躬",
+        "suggestion": "躬",
+        "description": "用於「躬逢其盛」、「事必躬親」時，用「躬」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "磕",
+        "suggestion": "磕",
+        "description": "用於「磕頭」時，用「磕」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "瞌",
+        "suggestion": "瞌",
+        "description": "用於「瞌睡」時，用「瞌」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "嗑",
+        "suggestion": "嗑",
+        "description": "用於「嗑牙」、「嗑瓜子」時，用「嗑」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "巢",
+        "suggestion": "窠",
+        "description": "用於「窠臼」時，用「窠」。常見誤用「巢臼」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "堪",
+        "suggestion": "堪",
+        "description": "用於「不堪回首」、「情何以堪」時，用「堪」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "勘",
+        "suggestion": "勘",
+        "description": "用於「勘察」、「勘誤」時，用「勘」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "戡",
+        "suggestion": "戡",
+        "description": "用於「戡亂」時，用「戡」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "褲",
+        "suggestion": "袴",
+        "description": "用於「紈袴子弟」時，建議用「袴」。(「褲」為現代常用字)",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "擴",
+        "suggestion": "廓",
+        "description": "用於「廓清」（肅清之意）、「輪廓」時，建議用「廓」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "擴",
+        "suggestion": "闊",
+        "description": "用於「開闊」、「廣闊」時，用「闊」。常與「擴」(擴大)混淆。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "膾",
+        "suggestion": "膾",
+        "description": "用於「膾炙人口」時，用「膾」。常見誤用「燴炙人口」或「膾灸人口」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "劊",
+        "suggestion": "劊",
+        "description": "用於「劊子手」時，用「劊」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "儈",
+        "suggestion": "儈",
+        "description": "用於「市儈」時，用「儈」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "饋",
+        "suggestion": "餽",
+        "description": "用於「餽贈」時，建議用「餽」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "曠廢",
+        "suggestion": "曠廢",
+        "description": "「曠日廢時」為正確用法，注意「曠」與「廢」。可能誤為「曠廢時日」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "憾",
+        "suggestion": "撼",
+        "description": "用於「震撼」時，用「撼」(手部)。「憾」(心部)指遺憾。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "焊",
+        "suggestion": "銲",
+        "description": "用於「銲接」時，建議用「銲」。(「焊」亦通用)",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "沆xie",
+        "suggestion": "沆瀣",
+        "description": "「沆瀣一氣」為正確用法。「瀣」字較易寫錯。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "糊",
+        "suggestion": "餬",
+        "description": "用於「餬口」時，建議用「餬」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "嘩",
+        "suggestion": "譁",
+        "description": "用於「譁然」、「喧譁」時，建議用「譁」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "伙",
+        "suggestion": "夥",
+        "description": "用於「合夥」、「夥伴」、「夥同」時，建議用「夥」。量詞「一夥人」亦用「夥」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "獲",
+        "suggestion": "穫",
+        "description": "用於「收穫」(農作物等)時，建議用「穫」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "穫",
+        "suggestion": "獲",
+        "description": "用於「不勞而獲」、「獲得」、「捕獲」、「查獲」、「漁獲量」時，建議用「獲」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "回轉率",
+        "suggestion": "迴轉率",
+        "description": "建議用「迴轉率」。(金融詞彙多用「迴」)",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "迴響",
+        "suggestion": "回響",
+        "description": "建議用「回響」。(指聲音反射或事件引起的反應)",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "煥",
+        "suggestion": "奐",
+        "description": "用於「美輪美奐」時，用「奐」。常見誤用「美輪美煥」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "奐",
+        "suggestion": "煥",
+        "description": "用於「煥然一新」、「容光煥發」時，用「煥」。常見誤用「奐然一新」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "璜",
+        "suggestion": "潢",
+        "description": "用於「裝潢」時，建議用「潢」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "合",
+        "suggestion": "和",
+        "description": "用於「零和遊戲」的「零和」時，用「和」。可能誤為「零合遊戲」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "擠",
+        "suggestion": "躋",
+        "description": "用於「躋身」時，建議用「躋」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "既使",
+        "suggestion": "即使",
+        "description": "用於「即使」時，用「即」。常見誤用「既使」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "籍",
+        "suggestion": "藉",
+        "description": "用於「杯盤狼藉」、「藉口」、「憑藉」時，用「藉」。 「杯盤狼藉」常誤為「杯盤狼籍」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "脊",
+        "suggestion": "瘠",
+        "description": "用於「貧瘠」時，建議用「瘠」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "紀錄",
+        "suggestion": "記錄",
+        "description": "作動詞用時，建議用「記錄」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "記錄",
+        "suggestion": "紀錄",
+        "description": "作名詞用時，建議用「紀錄」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "極",
+        "suggestion": "亟",
+        "description": "用於「亟欲」、「亟待解決」時，建議用「亟」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "既往不究",
+        "suggestion": "既往不咎",
+        "description": "建議用「既往不咎」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "接",
+        "suggestion": "截",
+        "description": "用於「直截了當」、「截然不同」時，用「截」。可能誤為「直接了當」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "節",
+        "suggestion": "節",
+        "description": "用於「環節」、「盤根錯節」、「節骨眼」時，用「節」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "糾",
+        "suggestion": "赳",
+        "description": "用於「雄赳赳」時，用「赳」。常見誤用「雄糾糾」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "禁",
+        "suggestion": "禁",
+        "description": "用於「禁不起」(承受不起)、「情不自禁」時，用「禁」(jīn)。讀jìn時表禁止。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "盡",
+        "suggestion": "儘",
+        "description": "用於副詞「儘管」、「儘快」、「儘量」(表示力求達到最大限量)時，建議用「儘」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "儘",
+        "suggestion": "盡",
+        "description": "用於「盡頭」、「盡力」、「詳盡」、「趕盡殺絕」(表示完結、全部用出)時，建議用「盡」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "精",
+        "suggestion": "菁",
+        "description": "用於「菁華」、「菁英」時，建議用「菁」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "兢兢",
+        "suggestion": "兢兢",
+        "description": "用於「兢兢業業」、「戰戰兢兢」時，用「兢兢」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "竟",
+        "suggestion": "竟",
+        "description": "用於「克竟全功」、「有志竟成」時，用「竟」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "競",
+        "suggestion": "競",
+        "description": "用於「競爭」、「競賽」時，用「競」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "脛",
+        "suggestion": "脛",
+        "description": "用於「不脛而走」時，用「脛」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "徑",
+        "suggestion": "逕",
+        "description": "用於「大相逕庭」、「逕自」時，建議用「逕」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "局",
+        "suggestion": "局",
+        "description": "用於「局限」、「局面」時，用「局」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "俱",
+        "suggestion": "具",
+        "description": "用於「家具」、「工具」、「文具」、「別具一格」時，建議用「具」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "鉅",
+        "suggestion": "巨",
+        "description": "用於「巨額」、「巨大」、「巨人」時，用「巨」。「鉅」通「巨」，但「巨」更常用。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "巨細靡遺",
+        "suggestion": "鉅細靡遺",
+        "description": "「鉅細靡遺」為正確用法。 「鉅」通「巨」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "據",
+        "suggestion": "遽",
+        "description": "用於「急遽」、「遽然」時，建議用「遽」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "劇",
+        "suggestion": "劇",
+        "description": "用於「劇烈」、「戲劇」時，用「劇」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "券",
+        "suggestion": "卷",
+        "description": "用於「交白卷」、「試卷」、「手不釋卷」時，用「卷」(juàn)。「考卷」的「卷」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "卷",
+        "suggestion": "券",
+        "description": "用於「票券」、「禮券」、「入場券」、「勝券在握」時，建議用「券」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "年青",
+        "suggestion": "年輕",
+        "description": "用於「年輕人」時，用「年輕」。常見混用「年青」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "輕",
+        "suggestion": "青",
+        "description": "用於「青年」、「青睞」、「青史」時，用「青」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "契而不舍",
+        "suggestion": "鍥而不舍",
+        "description": "「鍥而不舍」為正確用法。常見誤用「契而不舍」或「鍥而不捨」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "趨",
+        "suggestion": "驅",
+        "description": "用於「並駕齊驅」、「驅使」、「先驅」、「驅逐」時，用「驅」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "驅",
+        "suggestion": "趨",
+        "description": "用於「趨向」、「趨勢」、「趨炎附勢」時，用「趨」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "確",
+        "suggestion": "榷",
+        "description": "用於「商榷」時，建議用「榷」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "逡",
+        "suggestion": "逡",
+        "description": "用於「逡巡」時，用「逡」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "喜",
+        "suggestion": "熙",
+        "description": "用於「熙來攘往」、「康熙」時，用「熙」。可能誤為「喜來攘往」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "蹊蹺",
+        "suggestion": "蹊蹺",
+        "description": "「蹊蹺」為正確用法。可能誤為「蹊巧」或「奇巧」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "攜",
+        "suggestion": "攜",
+        "description": "用於「攜帶」、「提攜」時，用「攜」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "協",
+        "suggestion": "諧",
+        "description": "用於「和諧」、「諧音」時，建議用「諧」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "諧",
+        "suggestion": "協",
+        "description": "用於「協調」、「協助」、「妥協」時，建議用「協」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "閑",
+        "suggestion": "閒",
+        "description": "用於「空閒」、「休閒」、「閒聊」時，建議用「閒」。(「閑」本指柵欄，後通「閒」)",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "銜",
+        "suggestion": "銜",
+        "description": "用於「銜接」、「頭銜」、「銜枚疾走」時，用「銜」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "銜",
+        "suggestion": "啣",
+        "description": "用於「啣命」(口受命令)、「燕子啣泥」時，用「啣」。(「銜命」亦通用，取口含之意)",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "枵",
+        "suggestion": "枵",
+        "description": "用於「枵腹從公」時，用「枵」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "星",
+        "suggestion": "新",
+        "description": "用於「新加坡」時，用「新」。可能因口音誤為「星加坡」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "祥",
+        "suggestion": "詳",
+        "description": "用於「安詳」、「慈詳」時，用「詳」。(「祥」指吉利)",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "翔",
+        "suggestion": "翔",
+        "description": "用於「翔實」、「飛翔」時，用「翔」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "像",
+        "suggestion": "相",
+        "description": "用於「相片」、「真相」、「面相」時，建議用「相」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "形態",
+        "suggestion": "型態",
+        "description": "指「典型之狀態，人物之種類」時，建議用「型態」。如：不同型態的企業。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "型態",
+        "suggestion": "形態",
+        "description": "指「外表之狀態、形狀」時，建議用「形態」。如：細胞的形態。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "型",
+        "suggestion": "形",
+        "description": "用於「形塑」、「形容」、「情形」時，用「形」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "醒",
+        "suggestion": "省",
+        "description": "用於「不省人事」、「反省」、「節省」時，建議用「省」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "必需",
+        "suggestion": "必須",
+        "description": "作助動詞用時（如：必須完成），建議用「必須」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "必須",
+        "suggestion": "必需",
+        "description": "作名詞（如：生活必需品）或形容詞（如：必需的工具）用時，建議用「必需」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "須",
+        "suggestion": "需",
+        "description": "用於「需要」、「需求」時，用「需」。(「須」多作副詞，必須之意)",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "兇",
+        "suggestion": "凶",
+        "description": "用於「凶手」、「凶惡」、「吉凶」時，用「凶」。(「兇」表殘暴，但「凶」更廣泛)",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "喧",
+        "suggestion": "喧",
+        "description": "用於「喧囂」、「喧譁」時，用「喧」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "暄",
+        "suggestion": "暄",
+        "description": "用於「寒暄」時，用「暄」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "祇",
+        "suggestion": "只",
+        "description": "用於「只是」、「只有」、「船隻」的「隻」時，建議用「只」。(「祇」ㄍㄧˊ，地神)",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "誌",
+        "suggestion": "志",
+        "description": "用於「專心一志」、「意志」、「志氣」時，建議用「志」。（「誌」多用於記錄，如雜誌、標誌、墓誌銘）",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "致",
+        "suggestion": "緻",
+        "description": "用於形容詞「精緻」、「細緻」、「標致」、「別致」時，用「緻」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "緻",
+        "suggestion": "致",
+        "description": "用於「一致」、「興致」、「致力」、「導致」、「以致」時，用「致」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "致",
+        "suggestion": "至",
+        "description": "用於「至於」、「以至於」、「至今」、「至高無上」時，用「至」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "製",
+        "suggestion": "制",
+        "description": "用於「制定」、「制度」、「制止」、「控制」、「制裁」、「制服」時，建議用「制」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "制",
+        "suggestion": "製",
+        "description": "用於「製作」、「製造」、「製品」、「研製」、「複製」(物品)時，建議用「製」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "紮",
+        "suggestion": "扎",
+        "description": "用於「扎根」、「扎實」、「掙扎」時，建議用「扎」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "扎",
+        "suggestion": "紮",
+        "description": "用於「穩紮穩打」、「包紮」、「駐紮」時，建議用「紮」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "劄",
+        "suggestion": "札",
+        "description": "用於「札記」、「信札」時，用「札」。(「劄」為異體)",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "展",
+        "suggestion": "嶄",
+        "description": "用於「嶄露頭角」時，建議用「嶄」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "徵",
+        "suggestion": "朕",
+        "description": "用於「朕兆」(徵兆、跡象)時，建議用「朕」。(「朕」古亦為第一人稱代詞)",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "帳",
+        "suggestion": "帳",
+        "description": "用於「帳簿」、「帳戶」、「算帳」、「蚊帳」、「帳篷」時，用「帳」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "掙",
+        "suggestion": "爭",
+        "description": "用於「爭氣」、「爭執」、「爭取」時，建議用「爭」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "爭",
+        "suggestion": "掙",
+        "description": "用於「掙扎」、「掙脫」、「掙錢」時，建議用「掙」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "征",
+        "suggestion": "征",
+        "description": "用於「征伐」、「遠征」、「長征」時，用「征」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "症",
+        "suggestion": "癥",
+        "description": "用於「癥結」(問題的關鍵)時，建議用「癥」。(「症」指病症)",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "徵",
+        "suggestion": "徵",
+        "description": "用於「徵收」、「徵求」、「徵兵」、「特徵」、「象徵」時，用「徵」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "証",
+        "suggestion": "證",
+        "description": "用於「證明」、「證照」、「證據」、「保證」時，建議用「證」。「証」為「證」的異體字。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "卓",
+        "suggestion": "著",
+        "description": "用於「著手」、「著名」、「著作」、「附著」時，用「著」。(「卓」zhuó,卓越)",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "裝",
+        "suggestion": "妝",
+        "description": "用於「化妝」、「妝扮」、「新妝」時，建議用「妝」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "熱衷",
+        "suggestion": "熱中",
+        "description": "建議用「熱中」(內心熱烈追求)。「熱衷」亦被廣泛使用。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "嗤",
+        "suggestion": "嗤",
+        "description": "用於「嗤之以鼻」時，用「嗤」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "痴",
+        "suggestion": "癡",
+        "description": "用於「癡情」、「癡迷」、「白癡」時，建議用「癡」。「痴」為「癡」的異體字。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "姹",
+        "suggestion": "奼",
+        "description": "用於「奼紫嫣紅」時，建議用「奼」。(「姹」chà)",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "詫",
+        "suggestion": "詫",
+        "description": "用於「詫異」時，用「詫」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "澈",
+        "suggestion": "徹",
+        "description": "用於「貫徹」、「徹底」、「透徹」時，用「徹」。(「澈」chè,清澈)",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "誠",
+        "suggestion": "忱",
+        "description": "用於「熱忱」時，用「忱」。常見誤用「熱誠」。(熱誠指態度)",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "沈",
+        "suggestion": "沉",
+        "description": "用於「沉浸」、「沉默」、「沉重」時，用「沉」。「沈」為「沉」的異體字，也作姓氏。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "常",
+        "suggestion": "嘗",
+        "description": "用於「嘗試」、「品嘗」、「未嘗不可」時，建議用「嘗」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "稱",
+        "suggestion": "撐",
+        "description": "用於「支撐」、「撐傘」、「撐腰」時，建議用「撐」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "廚",
+        "suggestion": "廚",
+        "description": "用於「廚房」、「廚師」時，用「廚」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "拙",
+        "suggestion": "絀",
+        "description": "用於「相形見絀」、「支絀」時，建議用「絀」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "觸",
+        "suggestion": "觸",
+        "description": "用於「觸目驚心」、「接觸」時，用「觸」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "唇",
+        "suggestion": "脣",
+        "description": "用於「嘴脣」、「反脣相譏」、「脣亡齒寒」時，建議用「脣」。(「唇」為「脣」的俗字)",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "查",
+        "suggestion": "察",
+        "description": "用於「察覺」、「觀察」、「考察」、「明察秋毫」時，建議用「察」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "屍",
+        "suggestion": "尸",
+        "description": "用於「尸位素餐」、「行尸走肉」時，用「尸」。(「屍」指屍體)",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "逝",
+        "suggestion": "世",
+        "description": "用於「過世」、「去世」(指死亡)時，建議用「世」。(「逝」指逝去、消逝)",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "事",
+        "suggestion": "是",
+        "description": "用於「惹是生非」、「搬弄是非」時，用「是」。常見誤用「惹事生非」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "剎",
+        "suggestion": "煞",
+        "description": "用於「煞車」、「煞風景」、「凶神惡煞」時，建議用「煞」。(「剎」chà, 寺廟；shā, 剎那)",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "搧",
+        "suggestion": "煽",
+        "description": "用於「煽動」、「煽風點火」時，用「煽」。(「搧」shān, 搧風)",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "蔘",
+        "suggestion": "參",
+        "description": "用於「人參」、「海參」時，建議用「參」。(「蔘」為「參」的異體字，專指人參)",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "昇",
+        "suggestion": "升",
+        "description": "用於「提升」、「升遷」、「晉升」、「旭日東升」時，建議用「升」。「昇」為「升」的異體字。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "抒",
+        "suggestion": "舒",
+        "description": "用於「舒暢」、「舒適」、「舒展」、「舒壓」時，用「舒」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "抒",
+        "suggestion": "紓",
+        "description": "用於「紓困」、「紓解」(解除困難、憂愁)時，建議用「紓」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "紓",
+        "suggestion": "抒",
+        "description": "用於「抒發」(傾吐、發洩情感)、「抒情」時，建議用「抒」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "讓",
+        "suggestion": "攘",
+        "description": "用於「熙來攘往」、「攘除」時，用「攘」。可能與「讓」(ràng)混淆。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "冗",
+        "suggestion": "冗",
+        "description": "用於「冗員」、「冗長」時，用「冗」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "燥",
+        "suggestion": "躁",
+        "description": "用於「煩躁」、「急躁」、「暴躁」、「稍安勿躁」時，建議用「躁」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "贊",
+        "suggestion": "贊",
+        "description": "用於「贊成」、「贊助」、「贊同」時，用「贊」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "讚",
+        "suggestion": "讚",
+        "description": "用於「讚美」、「稱讚」、「讚賞」、「讚嘆」時，用「讚」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "座",
+        "suggestion": "坐",
+        "description": "作動詞用「坐下」、「請坐」、「坐落」時，建議用「坐」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "坐",
+        "suggestion": "座",
+        "description": "作名詞「座位」、「講座」、「星座」、量詞「一座山」時，建議用「座」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "做",
+        "suggestion": "作",
+        "description": "用於「運作」、「看作」、「當作」、「作文」、「創作」、「作為」、「作風」、「作罷」、「裝模作樣」時，建議用「作」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "作",
+        "suggestion": "做",
+        "description": "用於「做事」、「做飯」、「做夢」、「做朋友」、「做生意」、「做法」時，建議用「做」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "總合",
+        "suggestion": "綜合",
+        "description": "「綜合」為正確用法。常見誤用「總合」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "磁",
+        "suggestion": "磁",
+        "description": "用於「磁磚」、「磁性」、「磁鐵」、「磁場」時，用「磁」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "瓷",
+        "suggestion": "瓷",
+        "description": "用於「瓷器」、「陶瓷」時，用「瓷」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "測",
+        "suggestion": "側",
+        "description": "用於「側身」、「側面」、「側目」、「旁敲側擊」時，用「側」。(「測」cè,測量)",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "才",
+        "suggestion": "材",
+        "description": "用於「題材」、「材料」、「木材」、「因材施教」時，用「材」。(「才」cái,才能)",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "裁",
+        "suggestion": "裁",
+        "description": "用於「體裁」、「裁判」、「裁縫」、「裁員」時，用「裁」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "璀燦",
+        "suggestion": "璀璨",
+        "description": "「璀璨」為正確用法。常見誤用「璀燦」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "篡",
+        "suggestion": "篡",
+        "description": "用於「篡位」、「篡改」時，用「篡」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "斯",
+        "suggestion": "廝",
+        "description": "用於「廝殺」、「廝守」、「耳鬢廝磨」時，用「廝」。(「斯」sī,此)",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "宿",
+        "suggestion": "素",
+        "description": "用於「素來」、「平素」、「要素」時，建議用「素」。(「宿」sù,舊的、長久以來)",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "悚",
+        "suggestion": "悚",
+        "description": "用於「毛骨悚然」時，用「悚」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "頌",
+        "suggestion": "誦",
+        "description": "用於「背誦」、「朗誦」、「歌誦」(吟誦詩歌)時，建議用「誦」。(「頌」sòng,頌揚)",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "惡",
+        "suggestion": "噁",
+        "description": "用於「噁心」(想吐)時，建議用「噁」。(「惡」ě,厭惡；è,壞)",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "遏",
+        "suggestion": "遏",
+        "description": "用於「遏止」、「怒不可遏」時，用「遏」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "厄",
+        "suggestion": "厄",
+        "description": "用於「厄運」、「困厄」時，用「厄」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "驁",
+        "suggestion": "驁",
+        "description": "用於「桀驁不馴」時，用「驁」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "謳",
+        "suggestion": "謳",
+        "description": "用於「謳歌」時，用「謳」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "裝",
+        "suggestion": "安",
+        "description": "用於「安裝」、「安排」、「安全」時，用「安」。(「裝」zhuāng,裝置)",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "按",
+        "suggestion": "按",
+        "description": "用於「按照」、「按時」、「按摩」時，用「按」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "暗",
+        "suggestion": "諳",
+        "description": "用於「深諳此道」、「不諳水性」時，用「諳」。(「暗」àn,黑暗)",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "爾",
+        "suggestion": "爾",
+        "description": "用於「偶爾」、「爾後」、「不過爾爾」時，用「爾」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "誼",
+        "suggestion": "宜",
+        "description": "用於「宜人」、「適宜」、「便宜」(方便合適)時，用「宜」。(「誼」yì,情誼)",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "怡",
+        "suggestion": "怡",
+        "description": "用於「怡然自得」、「心曠神怡」時，用「怡」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "意",
+        "suggestion": "義",
+        "description": "用於「義大利」、「意義」、「義氣」、「義不容辭」時，用「義」。(「意」yì,意思)",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "亦",
+        "suggestion": "抑",
+        "description": "用於「抑或（是）」、「壓抑」、「抑揚頓挫」時，用「抑」。(「亦」yì,也)",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "挹",
+        "suggestion": "挹",
+        "description": "用於「資金挹注」時，用「挹」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "魘",
+        "suggestion": "魘",
+        "description": "用於「夢魘」時，用「魘」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "優遊",
+        "suggestion": "優游",
+        "description": "建議用「優游」(悠閒自在地生活或行動)。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "沿",
+        "suggestion": "沿",
+        "description": "用於「沿用」、「沿襲」、「沿途」時，用「沿」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "奄奄",
+        "suggestion": "懨懨",
+        "description": "用於「病懨懨」時，用「懨懨」。常見誤用「病奄奄」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "艷",
+        "suggestion": "豔",
+        "description": "用於「豔麗」、「鮮豔」、「驚豔」時，建議用「豔」。「艷」為「豔」的異體字。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "引",
+        "suggestion": "印",
+        "description": "用於「印證」、「印象」、「印刷」時，用「印」。(「引」yǐn,引導)",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "因",
+        "suggestion": "應",
+        "description": "用於「應接不暇」、「應該」、「答應」時，用「應」。(「因」yīn,因為)",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "睚眥",
+        "suggestion": "睚眥",
+        "description": "「睚眥必報」的「睚眥」為正確用法。睚(yá)眥(zì)。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "騖",
+        "suggestion": "騖",
+        "description": "用於「好高騖遠」時，用「騖」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "鶩",
+        "suggestion": "鶩",
+        "description": "用於「心無旁鶩」、「趨之若鶩」時，用「鶩」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "沃",
+        "suggestion": "渥",
+        "description": "用於「豐渥」、「優渥」時，用「渥」。(「沃」wò,肥沃)",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "維",
+        "suggestion": "維",
+        "description": "用於「思維」、「維護」、「維他命」時，用「維」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "惟",
+        "suggestion": "唯",
+        "description": "用於「唯有」、「唯一」、「唯利是圖」時，建議用「唯」。(「惟」wéi,思考；但是)",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "吻",
+        "suggestion": "吻",
+        "description": "用於「吻合」、「親吻」時，用「吻」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "於是",
+        "suggestion": "於是",
+        "description": "「於是」為正確用法。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "予",
+        "suggestion": "與",
+        "description": "用於「參與」、「給與」、「與人為善」時，用「與」。(「予」yú,我；yǔ,給予)",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "漁",
+        "suggestion": "漁",
+        "description": "用於「漁業」、「漁夫」、「竭澤而漁」時，用「漁」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "魚",
+        "suggestion": "魚",
+        "description": "用於「魚類」、「捕魚」、「魚目混珠」時，用「魚」。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "慾",
+        "suggestion": "欲",
+        "description": "用於「欲望」、「求知欲」、「暢所欲言」時，用「欲」。「慾」專指情色等欲望。",
+        "type": "char",
+        "defaultEnabled": true
+    },
+    {
+        "charToFlag": "蘊",
+        "suggestion": "醞",
+        "description": "用於「醞釀」時，用「醞」。(「蘊」yùn,蘊藏)",
+        "type": "char",
+        "defaultEnabled": true
+    }
+]

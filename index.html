@@ -1,0 +1,1587 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>繁體中文用字檢查與取代工具</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --background: #FFFFFF;
+            --foreground: #0F172A;
+            /* slate-900 */
+            --card: #FFFFFF;
+            --card-foreground: #0F172A;
+            --popover: #FFFFFF;
+            --popover-foreground: #0F172A;
+
+            --primary: #6565FF;
+            --primary-foreground: #FFFFFF;
+
+            --secondary: #F1F5F9;
+            /* slate-100 */
+            --secondary-foreground: #0F172A;
+            /* slate-900 */
+            --muted: #F1F5F9;
+            /* slate-100 */
+            --muted-foreground: #64748B;
+            /* slate-500 */
+            --accent: #E2E8F0;
+            /* slate-200 */
+            --accent-foreground: #0F172A;
+
+            --destructive: #CF2B54;
+            --destructive-foreground: #FFFFFF;
+
+            --border: #E2E8F0;
+            /* slate-200 */
+            --input: #CBD5E1;
+            /* slate-300 */
+            --ring: #6565FF;
+            --radius: 0.5rem;
+
+            --highlight-bg: #FFF7ED;
+            /* orange-50 */
+            --highlight-text: #C2410C;
+            /* orange-700 */
+            --highlight-border: #FB923C;
+            /* orange-400 */
+            --btn-secondary-border-light: #BBB;
+        }
+
+        .dark {
+            --background: #0F172A;
+            /* slate-900 */
+            --foreground: #F8FAFC;
+            /* slate-50 */
+            --card: #0F172A;
+            --card-foreground: #F8FAFC;
+            --popover: #0F172A;
+            --popover-foreground: #F8FAFC;
+            --primary: #7C7CFF;
+            --primary-foreground: #0F172A;
+            --secondary: #1E293B;
+            /* slate-800 */
+            --secondary-foreground: #F8FAFC;
+            --muted: #1E293B;
+            --muted-foreground: #94A3B8;
+            /* slate-400 */
+            --accent: #334155;
+            /* slate-700 */
+            --accent-foreground: #F8FAFC;
+            --destructive: #DA5A7B;
+            --destructive-foreground: #FFFFFF;
+            --border: #334155;
+            /* slate-700 */
+            --input: #475569;
+            /* slate-600 */
+            --ring: #7C7CFF;
+            --highlight-bg: #432C13;
+            --highlight-text: #FED7AA;
+            --highlight-border: #EA580C;
+            --btn-secondary-border-dark: #888;
+            /* slate-600 */
+        }
+
+        body {
+            font-family: 'Inter', 'Noto Sans TC', sans-serif;
+            background-color: var(--background);
+            color: var(--foreground);
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .highlight {
+            background-color: var(--highlight-bg) !important;
+            color: var(--highlight-text) !important;
+            border: 1px dashed var(--highlight-border) !important;
+            font-weight: normal;
+            padding: 0.1em 0.2em;
+            border-radius: 0.2em;
+            cursor: pointer;
+        }
+
+        .current-highlight {
+            background-color: #FB923C !important;
+            color: #FFFFFF !important;
+            box-shadow: 0 0 5px #FB923C;
+        }
+
+        .dark .current-highlight {
+            background-color: #D97706 !important;
+            color: #000000 !important;
+            box-shadow: 0 0 5px #D97706;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: var(--radius);
+            font-size: 0.875rem;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            transition: opacity 0.2s, background-color 0.2s, border-color 0.2s;
+            border: 1px solid transparent;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--primary-foreground);
+        }
+
+        .btn-primary:hover:not(:disabled) {
+            opacity: 0.8;
+        }
+
+        .btn-secondary {
+            background-color: var(--secondary);
+            color: var(--secondary-foreground);
+            border-color: var(--btn-secondary-border-light);
+        }
+
+        .dark .btn-secondary {
+            border-color: var(--btn-secondary-border-dark);
+        }
+
+        .btn-secondary:hover:not(:disabled) {
+            background-color: var(--accent);
+            opacity: 0.9;
+        }
+
+        .btn-destructive {
+            background-color: var(--destructive);
+            color: var(--primary-foreground);
+        }
+
+        .btn-destructive:hover:not(:disabled) {
+            opacity: 0.8;
+        }
+
+        .btn-outline {
+            border-color: var(--input);
+            background-color: var(--background);
+            color: var(--foreground);
+        }
+
+        .btn-outline:hover:not(:disabled) {
+            background-color: var(--accent);
+            color: var(--accent-foreground);
+            opacity: 0.8;
+        }
+
+        .editable-input-area {
+            min-height: 120px;
+            height: auto;
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--input);
+            border-radius: var(--radius);
+            background-color: var(--background);
+            color: var(--foreground);
+            font-size: 0.875rem;
+            line-height: 1.5;
+            overflow-y: auto;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            -webkit-user-modify: read-write-plaintext-only;
+        }
+
+        .editable-input-area:focus-visible {
+            outline: 2px solid var(--ring);
+            outline-offset: 2px;
+            border-color: var(--ring);
+        }
+
+        .editable-input-area[data-placeholder]:empty:before {
+            content: attr(data-placeholder);
+            color: var(--muted-foreground);
+            pointer-events: none;
+            display: block;
+        }
+
+        input[type="text"].input,
+        input[type="checkbox"].input-checkbox {
+            border-radius: var(--radius);
+            border: 1px solid var(--input);
+            background-color: var(--background);
+            color: var(--foreground);
+        }
+
+        input[type="text"].input::placeholder {
+            color: var(--muted-foreground);
+        }
+
+        input[type="text"].input:focus-visible {
+            outline: 2px solid var(--ring);
+            outline-offset: 2px;
+            border-color: var(--ring);
+        }
+
+
+        .card {
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            background-color: var(--card);
+            color: var(--card-foreground);
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+        }
+
+        .dark .card {
+            box-shadow: 0 0 0 1px var(--border);
+        }
+
+        .modal-base {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            padding: 1rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .modal-base.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content-base {
+            background-color: var(--card);
+            color: var(--card-foreground);
+            border: 1px solid var(--border);
+            padding: 1.5rem;
+            border-radius: var(--radius);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            position: relative;
+            transform: scale(0.95);
+            transition: transform 0.3s ease;
+            max-height: 90vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .modal-base.active .modal-content-base {
+            transform: scale(1);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .modal-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .modal-body {
+            flex-grow: 1;
+            overflow-y: auto;
+        }
+
+        .modal-footer {
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+        }
+
+
+        .close-button {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--muted-foreground);
+            cursor: pointer;
+            padding: 0.25rem;
+            line-height: 1;
+        }
+
+        .close-button:hover,
+        .close-button:focus {
+            color: var(--foreground);
+        }
+
+        .theme-switch-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .theme-switch {
+            position: relative;
+            display: inline-block;
+            width: 44px;
+            height: 24px;
+        }
+
+        .theme-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: var(--secondary);
+            transition: .4s;
+            border-radius: 24px;
+            border: 1px solid var(--border);
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 3px;
+            bottom: 2px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+            box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+        }
+
+        input:checked+.slider {
+            background-color: var(--primary);
+        }
+
+        input:checked+.slider:before {
+            transform: translateX(18px);
+        }
+
+        .theme-label {
+            font-size: 0.75rem;
+            color: var(--muted-foreground);
+        }
+
+        #charOptionsContainer::-webkit-scrollbar,
+        .modal-body::-webkit-scrollbar {
+            display: none;
+        }
+
+        #charOptionsContainer,
+        .modal-body {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .checklist-item {
+            display: flex;
+            align-items: flex-start;
+            padding: 0.75rem 0.5rem;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            transition: background-color 0.2s;
+            background-color: var(--background);
+        }
+
+        .checklist-item:hover {
+            background-color: var(--accent);
+        }
+
+        .checklist-item-controls {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            margin-right: 0.75rem;
+            height: auto;
+            min-height: 2.5rem;
+        }
+
+        .checklist-item-controls input[type="checkbox"] {
+            margin-bottom: 0.5rem;
+            height: 1.125rem;
+            width: 1.125rem;
+            cursor: pointer;
+            accent-color: var(--primary);
+        }
+
+        .checklist-item-text {
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .checklist-item-text label {
+            font-size: 0.875rem;
+            font-weight: 500;
+            cursor: pointer;
+            color: var(--card-foreground);
+        }
+
+        .checklist-delete-btn {
+            background: none;
+            border: none;
+            padding: 0.25rem;
+            cursor: pointer;
+            color: var(--destructive);
+            margin-top: auto;
+        }
+
+        .checklist-delete-btn:hover i {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+
+<body class="p-4 md:p-8">
+    <div class="fixed top-4 right-4 z-50 theme-switch-wrapper">
+        <span class="theme-label">Light</span>
+        <label class="theme-switch">
+            <input type="checkbox" id="themeToggleInput">
+            <span class="slider"></span>
+        </label>
+        <span class="theme-label">Dark</span>
+    </div>
+
+    <div id="initialAuthModal" class="modal-base active">
+        <div class="modal-content-base max-w-md">
+            <h2 class="text-xl font-semibold mb-4">歡迎使用！</h2>
+            <p class="mb-6 text-sm" style="color: var(--muted-foreground);">請選擇您的登入方式以獲得個人化體驗：</p>
+            <div class="space-y-3">
+                <button id="modalSignInGoogleBtn" class="btn btn-primary w-full">
+                    <i class="fab fa-google mr-2"></i> 使用 Google 登入
+                </button>
+                <button id="modalSignInAnonymouslyBtn" class="btn btn-secondary w-full">
+                    以訪客身份繼續 (匿名)
+                </button>
+            </div>
+            <p class="text-xs mt-4" style="color: var(--muted-foreground);">您的自訂檢查項目將會儲存，方便下次使用。</p>
+        </div>
+    </div>
+
+    <div class="container mx-auto max-w-6xl card p-6 md:p-8">
+        <header class="mb-8 text-center">
+            <h1 class="text-3xl md:text-4xl font-bold" style="color: var(--primary);">繁體中文用字檢查與取代工具</h1>
+            <p class="mt-2" style="color: var(--muted-foreground);">協助您校對並統一常用的繁體中文用字，可自訂檢查規則並儲存。</p>
+        </header>
+
+        <div id="authContainer" class="mb-6 text-sm text-center space-y-2">
+            <div id="userInfo" style="color: var(--muted-foreground);">請選擇登入方式以開始</div>
+            <button id="googleSignInBtn" class="hidden btn btn-primary text-sm py-2 px-3"> <i
+                    class="fab fa-google mr-2"></i> 使用 Google 登入
+            </button>
+            <button id="anonymousSignInBtn" class="hidden btn btn-secondary text-sm py-2 px-3"> <i
+                    class="fas fa-user-secret mr-2"></i> 以訪客身份登入
+            </button>
+            <button id="signOutBtn" class="hidden btn btn-destructive text-sm py-2 px-3"> 登出
+            </button>
+        </div>
+
+
+        <div class="space-y-6">
+            <div>
+                <div class="flex justify-between items-center mb-2">
+                    <label for="inputText" class="block text-lg font-semibold">編輯區域：</label>
+                    <div id="matchInfo" class="text-sm" style="color: var(--muted-foreground);"></div>
+                </div>
+                <div id="inputText" contenteditable="true" class="editable-input-area"
+                    data-placeholder="請在此處貼上或輸入您要檢查的文字..." role="textbox" aria-multiline="true"></div>
+            </div>
+
+            <div class="my-6 flex flex-wrap gap-3">
+                <button id="processTextBtn" class="btn btn-primary text-sm py-2 px-3"> <i
+                        class="fas fa-search mr-2"></i> 手動檢查並標示
+                </button>
+                <button id="manageRulesBtn" class="btn btn-outline text-sm py-2 px-3"> <i
+                        class="fas fa-list-check mr-2"></i> 管理檢查項目
+                </button>
+            </div>
+
+            <div id="replaceControls" class="mt-4 p-4 rounded-[var(--radius)] border hidden"
+                style="background-color: var(--muted); border-color: var(--border);">
+                <h3 class="text-md font-semibold mb-3">取代功能</h3>
+                <div class="flex flex-wrap items-center gap-2">
+                    <input type="text" id="replaceWithText" placeholder="取代為..."
+                        class="input flex-grow min-w-[100px] sm:min-w-0">
+                    <button id="prevMatchBtn" class="btn btn-secondary text-sm py-2 px-3 whitespace-nowrap"><i
+                            class="fas fa-arrow-left mr-1"></i>上一個</button>
+                    <button id="nextMatchBtn" class="btn btn-secondary text-sm py-2 px-3 whitespace-nowrap">下一個<i
+                            class="fas fa-arrow-right ml-1"></i></button>
+                    <button id="ignoreCurrentBtn"
+                        class="btn btn-outline text-sm py-2 px-3 whitespace-nowrap">忽略此項</button>
+                    <button id="replaceCurrentBtn"
+                        class="btn btn-primary text-sm py-2 px-3 whitespace-nowrap">取代此項</button>
+                    <button id="replaceAllBtn"
+                        class="btn btn-destructive text-sm py-2 px-3 whitespace-nowrap">全部取代</button>
+                </div>
+            </div>
+        </div>
+
+        <footer class="mt-12 text-center text-sm" style="color: var(--muted-foreground);">
+            <p>&copy; <span id="currentYear"></span> 繁體中文用字檢查與取代工具. <span id="appIdDisplay"></span></p>
+        </footer>
+    </div>
+
+    <div id="rulesManagementModal" class="modal-base">
+        <div class="modal-content-base w-4/5 max-w-screen-lg">
+            <div class="modal-header">
+                <h2 class="modal-title">檢查項目管理</h2>
+                <button id="closeRulesModalBtn" class="close-button" aria-label="關閉視窗">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p class="text-xs mb-4" style="color: var(--muted-foreground);">勾選的項目將被標示。清單會自動儲存。將滑鼠懸停在項目上可查看描述。</p>
+                <div class="flex space-x-2 mb-4">
+                    <button id="selectAllBtn" class="btn btn-outline text-sm flex-1 py-2 px-3">全選</button>
+                    <button id="deselectAllBtn" class="btn btn-outline text-sm flex-1 py-2 px-3">全不選</button>
+                </div>
+                <div id="charOptionsContainer"
+                    class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 mb-4 py-2 max-h-[40vh] overflow-y-auto">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <h3 class="text-md font-semibold mb-3">新增自訂檢查字詞</h3>
+                <div class="space-y-3">
+                    <input type="text" id="newCharToFlag" placeholder="要標示的字/詞 (可為 Regex)" class="input w-full">
+                    <input type="text" id="newCharSuggestion" placeholder="建議取代為 (可用 $1)" class="input w-full">
+                    <input type="text" id="newCharDescription" placeholder="描述 (例如：建議用「劃」)" class="input w-full">
+                    <div class="flex items-center">
+                        <input type="checkbox" id="newIsRegex" class="h-4 w-4 rounded mr-2"
+                            style="accent-color: var(--primary);">
+                        <label for="newIsRegex" class="text-sm" style="color: var(--muted-foreground);">此為正則表達式</label>
+                    </div>
+                    <button id="addCharBtn" class="btn btn-primary w-full text-sm py-2 px-3">
+                        <i class="fas fa-check-circle mr-2"></i> 確認新增
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="deleteConfirmModal" class="modal-base">
+        <div class="modal-content-base max-w-sm">
+            <div class="modal-header">
+                <h3 class="text-lg font-medium text-destructive">確認刪除</h3>
+                <button id="closeDeleteConfirmModalBtn" class="close-button" aria-label="關閉確認視窗">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p id="deleteConfirmMessage" class="text-sm mb-4" style="color: var(--foreground);">
+                    您確定要刪除這個檢查規則嗎？此操作無法復原。</p>
+            </div>
+            <div class="modal-footer flex justify-end space-x-3">
+                <button id="cancelDeleteBtn" class="btn btn-secondary">取消</button>
+                <button id="confirmDeleteBtn" class="btn btn-destructive">確定刪除</button>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="messageModal" class="modal-base">
+        <div class="modal-content-base max-w-md">
+            <button class="close-button" onclick="closeModal('messageModal')">&times;</button>
+            <p id="modalMessageText" class="text-sm"></p>
+        </div>
+    </div>
+
+    <script type="module">
+        import { initializeApp, setLogLevel } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import {
+            getAuth,
+            signInAnonymously,
+            onAuthStateChanged,
+            GoogleAuthProvider,
+            signInWithPopup,
+            signOut,
+            linkWithPopup
+        } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, doc, setDoc, getDoc, collection, onSnapshot, addDoc, deleteDoc, query, where, writeBatch, runTransaction } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {
+            apiKey: "AIzaSyAgFhY3ZaZm7oo3rlZRYQvnZHgrrweq4K0", // Placeholder
+            authDomain: "characters-checking.firebaseapp.com", // Placeholder
+            projectId: "characters-checking", // Placeholder
+            storageBucket: "characters-checking.firebasestorage.app", // Placeholder
+            messagingSenderId: "112553045027", // Placeholder
+            appId: "1:112553045027:web:bbd00593933dde1bfbd596" // Placeholder
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+        setLogLevel('debug');
+
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-checker-app';
+
+        let userId = null;
+        let userCharList = [];
+        let unsubscribeUserCharList = null;
+        let ignoredInstances = [];
+        let debounceTimer;
+        let ruleToDeleteId = null; // To store ID of rule to be deleted
+
+        const defaultCharactersToFlag = [
+            { charToFlag: '週([一二三四五六日天])', suggestion: '星期$1', description: '建議將「週X」改為「星期X」 (X為一至日或天)', type: 'char', defaultEnabled: true, isRegex: true },
+            { charToFlag: '(上|下|本)週', suggestion: '$1星期', description: '建議將「上/下/本週」改為「上/下/本星期」', type: 'char', defaultEnabled: true, isRegex: true },
+            { charToFlag: "畫", suggestion: "劃", description: "動詞情境，如：規劃、劃分、劃時代，建議用「劃」。名詞或表描繪時用「畫」，如：計畫、刻畫、圖畫。", type: "char", defaultEnabled: true, isRegex: false },
+            { charToFlag: "裏", suggestion: "裡", description: "建議用「裡」（如：這裡、不明就裡）。「裏」為香港用法，除非特殊目的，否則建議改用「裡」。", type: "char", defaultEnabled: true, isRegex: false },
+            { charToFlag: "賬", suggestion: "帳", description: "建議用「帳」（如：帳簿，多用於錢財）。", type: "char", defaultEnabled: true, isRegex: false },
+            { charToFlag: "咨", suggestion: "諮", description: "表示諮詢時，建議用「諮」。", type: "char", defaultEnabled: true, isRegex: false },
+            { charToFlag: "渡", suggestion: "度", description: "表示「過日子」時，建議用「度」（如：度假）。表示「跨越」時用「渡」（如：過渡時期）。", type: "char", defaultEnabled: true, isRegex: false },
+            { charToFlag: "份", suggestion: "分", description: "用於「身分」、「成分」、「天分」、「部分」、「分量」、「充分」、「過分」、「認分」、「知識分子」等，建議用「分」。表示單位量詞時用「份」（如：一份報紙）。", type: "char", defaultEnabled: true, isRegex: false },
+            { charToFlag: "反饋", suggestion: "回饋", description: "建議用「回饋」。", type: "char", defaultEnabled: true, isRegex: false },
+            { charToFlag: "鍊", suggestion: "鏈", description: "用於產業鏈、區塊鏈等，建議用「鏈」。修「練」、鍛「鍊」等用「鍊」。", type: "char", defaultEnabled: true, isRegex: false },
+            { charToFlag: "佔", suggestion: "占", description: "用於占有、占據、占領、市占率、占便宜等，建議用「占」。特定專有名詞（如「佔中三子」）可保留。", type: "char", defaultEnabled: true, isRegex: false },
+            { charToFlag: "週", suggestion: "周", description: "表示「周圍」、「周全」、「周延」、「周邊」等義時，建議用「周」。表示「星期」（如：週刊）、「週期」、「週年」時，建議用「週」。", type: "char", defaultEnabled: true, isRegex: false },
+            { charToFlag: "煙", suggestion: "菸", description: "指香菸、電子菸、加熱菸等製品時，法令或統一用「菸」。指「煙霧」時用「煙」。", type: "char", defaultEnabled: true, isRegex: false },
+            { charToFlag: "污", suggestion: "汙", description: "建議用「汙」（如：汙染、汙名化），「污」是異體字。", type: "char", defaultEnabled: true, isRegex: false },
+            { charToFlag: "佈", suggestion: "布", description: "用於公布、宣布、發布、分布、布局、布置、布告欄等，建議用「布」。", type: "char", defaultEnabled: true, isRegex: false },
+            { charToFlag: "博", suggestion: "搏", description: "用於「搏鬥」、「搏取」、「放手一搏」、「脈搏」、「肉搏戰」時，建議用「搏」。", type: "char", defaultEnabled: true, isRegex: false },
+            { charToFlag: "博", suggestion: "膊", description: "用於「赤膊」時，建議用「膊」。", type: "char", defaultEnabled: true, isRegex: false },
+            { charToFlag: "揹", suggestion: "背", description: "用於「背著背包」、「背離」時，建議用「背」。", type: "char", defaultEnabled: true, isRegex: false },
+            { charToFlag: "般駁", suggestion: "斑駁", description: "「斑駁」為正確用法，指色彩混雜不純。常見誤用「般駁」。", type: "char", defaultEnabled: true, isRegex: false },
+            { charToFlag: "般", suggestion: "斑", description: "用於「可見一斑」時，建議用「斑」。", type: "char", defaultEnabled: true, isRegex: false },
+            { charToFlag: "板", suggestion: "闆", description: "用於「老闆」時，建議用「闆」。", type: "char", defaultEnabled: true, isRegex: false },
+            { charToFlag: "劃", suggestion: "畫", description: "用於「比畫」時（揮手比畫），建議用「畫」。", type: "char", defaultEnabled: true, isRegex: false },
+            { charToFlag: "畢挺", suggestion: "筆挺", description: "「西裝筆挺」為正確用法，注意「筆」字。常見誤用「畢挺」。", type: "char", defaultEnabled: true, isRegex: false },
+            { charToFlag: "禮拜", suggestion: "星期", description: "建議統一用「星期」", type: "char", defaultEnabled: true, isRegex: false },
+            { charToFlag: "聖誕", suggestion: "耶誕", description: "建議統一用「耶誕」", type: "char", defaultEnabled: true, isRegex: false }
+            // ... (rest of the defaultCharactersToFlag array from previous version, ensuring isRegex: false is added if not a regex rule)
+        ];
+
+        const halfWidthPunctuationMap = {
+            ',': { full: '，', description: '半形逗號' }, '.': { full: '。', description: '半形句號' },
+            '?': { full: '？', description: '半形問號' }, '!': { full: '！', description: '半形驚嘆號' },
+            ';': { full: '；', description: '半形分號' }, ':': { full: '：', description: '半形冒號' },
+            '(': { full: '（', description: '半形左括號' }, ')': { full: '）', description: '半形右括號' },
+            '~': { full: '～', description: '半形波浪號' }, '/': { full: '／', description: '半形斜線' },
+            '+': { full: '＋', description: '半形加號' }, '=': { full: '＝', description: '半形等號' },
+            '[': { full: '［', description: '半形左中括號' }, ']': { full: '］', description: '半形右中括號' },
+            '{': { full: '｛', description: '半形左大括號' }, '}': { full: '｝', description: '半形右大括號' },
+            '"': { full: '「」', description: '半形雙引號' }, "'": { full: '‘’', description: '半形單引號' }
+        };
+
+        const halfWidthPunctuationRegexGlobal = /[,.?!\(\);:~\/+=`"'_\[\]{}]/g;
+        const quotePunctuationAfterRegexGlobal = /(」)([，。？！；：])/g;
+        const spacingCnEnNumRegexGlobal = /([\u4E00-\u9FFF])\s+([a-zA-Z0-9])|([a-zA-Z0-9])\s+([\u4E00-\u9FFF])/g;
+
+        const inputTextEl = document.getElementById('inputText');
+        const processTextBtn = document.getElementById('processTextBtn');
+        const manageRulesBtn = document.getElementById('manageRulesBtn');
+        const rulesManagementModal = document.getElementById('rulesManagementModal');
+        const closeRulesModalBtn = document.getElementById('closeRulesModalBtn');
+        const charOptionsContainer = document.getElementById('charOptionsContainer');
+        const selectAllBtn = document.getElementById('selectAllBtn');
+        const deselectAllBtn = document.getElementById('deselectAllBtn');
+        const currentYearEl = document.getElementById('currentYear');
+        const userInfoEl = document.getElementById('userInfo');
+        const appIdDisplayEl = document.getElementById('appIdDisplay');
+        const googleSignInBtn = document.getElementById('googleSignInBtn');
+        const anonymousSignInBtn = document.getElementById('anonymousSignInBtn');
+        const signOutBtn = document.getElementById('signOutBtn');
+        const themeToggleInput = document.getElementById('themeToggleInput');
+
+        const newCharToFlagEl = document.getElementById('newCharToFlag');
+        const newCharSuggestionEl = document.getElementById('newCharSuggestion');
+        const newCharDescriptionEl = document.getElementById('newCharDescription');
+        const newIsRegexEl = document.getElementById('newIsRegex');
+        const addCharBtn = document.getElementById('addCharBtn');
+
+        const replaceControlsEl = document.getElementById('replaceControls');
+        const replaceWithTextEl = document.getElementById('replaceWithText');
+        const prevMatchBtn = document.getElementById('prevMatchBtn');
+        const nextMatchBtn = document.getElementById('nextMatchBtn');
+        const ignoreCurrentBtn = document.getElementById('ignoreCurrentBtn');
+        const replaceCurrentBtn = document.getElementById('replaceCurrentBtn');
+        const replaceAllBtn = document.getElementById('replaceAllBtn');
+        const matchInfoEl = document.getElementById('matchInfo');
+
+        const messageModal = document.getElementById('messageModal');
+        const modalMessageText = document.getElementById('modalMessageText');
+        const initialAuthModal = document.getElementById('initialAuthModal');
+        const modalSignInGoogleBtn = document.getElementById('modalSignInGoogleBtn');
+        const modalSignInAnonymouslyBtn = document.getElementById('modalSignInAnonymouslyBtn');
+
+        const deleteConfirmModal = document.getElementById('deleteConfirmModal');
+        const closeDeleteConfirmModalBtn = document.getElementById('closeDeleteConfirmModalBtn');
+        const cancelDeleteBtn = document.getElementById('cancelDeleteBtn');
+        const confirmDeleteBtn = document.getElementById('confirmDeleteBtn');
+        const deleteConfirmMessage = document.getElementById('deleteConfirmMessage');
+
+
+        let highlightedMatches = [];
+        let currentMatchIndex = -1;
+
+        const googleProvider = new GoogleAuthProvider();
+
+        function applyTheme(theme) {
+            if (theme === 'dark') {
+                document.documentElement.classList.add('dark');
+                if (themeToggleInput) themeToggleInput.checked = true;
+            } else {
+                document.documentElement.classList.remove('dark');
+                if (themeToggleInput) themeToggleInput.checked = false;
+            }
+        }
+
+        function handleThemeToggle() {
+            const newTheme = themeToggleInput.checked ? 'dark' : 'light';
+            localStorage.setItem('theme', newTheme);
+            applyTheme(newTheme);
+        }
+
+        async function handleSignInAnonymously() {
+            try {
+                initialAuthModal.classList.remove('active');
+                await signInAnonymously(auth);
+            } catch (error) {
+                console.error("Error signing in anonymously:", error);
+                userInfoEl.textContent = "匿名登入失敗，請重試或使用 Google 登入。";
+                googleSignInBtn.classList.remove('hidden');
+                anonymousSignInBtn.classList.remove('hidden');
+            }
+        }
+
+        async function handleSignInWithGoogle() {
+            try {
+                initialAuthModal.classList.remove('active');
+                const currentUser = auth.currentUser;
+                if (currentUser && currentUser.isAnonymous) {
+                    const result = await linkWithPopup(currentUser, googleProvider);
+                    console.log("Anonymous account successfully linked to Google account.", result.user);
+                } else {
+                    const result = await signInWithPopup(auth, googleProvider);
+                    console.log("Google Sign-In successful:", result.user);
+                }
+            } catch (error) {
+                console.error("Google Sign-In/Link Error:", error);
+                if (error.code === 'auth/credential-already-in-use') {
+                    showMessage("此 Google 帳戶已被使用。如果您之前已用此 Google 帳戶登入，請先登出再嘗試重新登入。");
+                } else if (error.code === 'auth/popup-closed-by-user' || error.code === 'auth/cancelled-popup-request') {
+                    showMessage("Google 登入已取消。");
+                } else if (error.code === 'auth/popup-blocked') {
+                    showMessage("瀏覽器已阻擋 Google 登入彈出視窗，請檢查您的瀏覽器設定。");
+                }
+                else {
+                    showMessage(`Google 處理失敗: ${error.message}`);
+                }
+                if (!auth.currentUser) {
+                    googleSignInBtn.classList.remove('hidden');
+                    anonymousSignInBtn.classList.remove('hidden');
+                }
+            }
+        }
+
+        async function signOutUser() {
+            try {
+                await signOut(auth);
+                console.log("User signed out");
+            } catch (error) {
+                console.error("Sign Out Error", error);
+                showMessage(`登出失敗: ${error.message}`);
+            }
+        }
+
+        onAuthStateChanged(auth, async (user) => {
+            if (unsubscribeUserCharList) unsubscribeUserCharList();
+
+            if (user) {
+                userId = user.uid;
+                initialAuthModal.classList.remove('active');
+
+                let userInfoText = `使用者 ID: <span class="font-mono text-xs break-all">${userId}</span>`;
+                if (user.isAnonymous) {
+                    userInfoText += " (訪客)";
+                    googleSignInBtn.classList.remove('hidden');
+                    anonymousSignInBtn.classList.add('hidden');
+                } else {
+                    if (user.displayName) {
+                        userInfoText = `已使用 ${user.displayName} (${user.email || ''}) 登入`;
+                    } else if (user.email) {
+                        userInfoText = `已使用 ${user.email} 登入`;
+                    }
+                    googleSignInBtn.classList.add('hidden');
+                    anonymousSignInBtn.classList.add('hidden');
+                }
+                userInfoEl.innerHTML = userInfoText;
+                signOutBtn.classList.remove('hidden');
+
+                await loadUserCharList();
+            } else {
+                userId = null;
+                userInfoEl.textContent = '您尚未登入。請選擇登入方式：';
+                googleSignInBtn.classList.remove('hidden');
+                anonymousSignInBtn.classList.remove('hidden');
+                signOutBtn.classList.add('hidden');
+
+                userCharList = [];
+                charOptionsContainer.innerHTML = '<p class="text-sm" style="color: hsl(var(--muted-foreground));">請登入以載入或儲存您的自訂清單。</p>';
+                replaceControlsEl.classList.add('hidden');
+
+                if (!initialAuthModal.classList.contains('active')) {
+                    if (!sessionStorage.getItem('userSignedOut')) {
+                        initialAuthModal.classList.add('active');
+                    } else {
+                        userInfoEl.textContent = '您已登出。請選擇登入方式：';
+                    }
+                }
+                sessionStorage.removeItem('userSignedOut');
+            }
+        });
+
+        async function loadUserCharList() {
+            if (!userId) {
+                charOptionsContainer.innerHTML = '<p class="text-sm" style="color: hsl(var(--muted-foreground));">使用者未登入，無法載入規則。</p>';
+                return;
+            }
+            const userListCollectionPath = `artifacts/${appId}/users/${userId}/customCharRules`;
+            const userListCollectionRef = collection(db, userListCollectionPath);
+
+            if (unsubscribeUserCharList) unsubscribeUserCharList();
+
+            unsubscribeUserCharList = onSnapshot(userListCollectionRef, (snapshot) => {
+                const rulesFromDB = snapshot.docs.map(doc => {
+                    const data = doc.data();
+                    return {
+                        id: doc.id,
+                        ...data,
+                        type: data.type || 'char',
+                        isRegex: data.isRegex || false
+                    };
+                });
+
+                if (snapshot.empty && userId) {
+                    console.log("使用者尚無自訂規則，正在建立預設規則...");
+
+                    const fullDefaultList = [
+                        { charToFlag: '週([一二三四五六日天])', suggestion: '星期$1', description: '建議將「週X」改為「星期X」 (X為一至日或天)', type: 'char', defaultEnabled: true, isRegex: true },
+                        { charToFlag: '(上|下|本)週', suggestion: '$1星期', description: '建議將「上/下/本週」改為「上/下/本星期」', type: "char", defaultEnabled: true, isRegex: true },
+                        ...defaultCharactersToFlag.filter(r => !r.isRegex)
+                    ].map(item => ({ ...item, id: crypto.randomUUID(), enabled: item.defaultEnabled, type: item.type || 'char', isRegex: item.isRegex || false }));
+
+                    const uniqueDefaultList = [];
+                    const seen = new Set();
+                    for (const rule of fullDefaultList) {
+                        if (!seen.has(rule.charToFlag)) {
+                            uniqueDefaultList.push(rule);
+                            seen.add(rule.charToFlag);
+                        } else if (rule.isRegex) {
+                            const index = uniqueDefaultList.findIndex(r => r.charToFlag === rule.charToFlag && !r.isRegex);
+                            if (index !== -1) uniqueDefaultList[index] = rule;
+                        }
+                    }
+                    userCharList = uniqueDefaultList;
+
+                    const batch = writeBatch(db);
+                    userCharList.forEach(rule => {
+                        const docRef = doc(userListCollectionRef);
+                        rule.id = docRef.id;
+                        const { id, ...ruleData } = rule;
+                        batch.set(docRef, ruleData);
+                    });
+                    batch.commit().then(() => {
+                        console.log("預設規則已儲存至 Firestore。");
+                        populateCharOptions();
+                    }).catch(error => console.error("儲存預設規則失敗:", error));
+                } else {
+                    userCharList = rulesFromDB;
+                    console.log("已從 Firestore 載入使用者自訂規則。");
+                }
+                populateCharOptions();
+            }, (error) => {
+                console.error("載入使用者規則時發生錯誤:", error);
+                userCharList = defaultCharactersToFlag.map(item => ({ ...item, id: crypto.randomUUID(), enabled: item.defaultEnabled, type: item.type || 'char', isRegex: item.isRegex || false }));
+                populateCharOptions();
+            });
+        }
+
+        async function saveCharRule(rule) {
+            if (!userId) { showMessage("使用者未登入，無法儲存規則。"); return; }
+            try {
+                const docRef = doc(collection(db, `artifacts/${appId}/users/${userId}/customCharRules`));
+                await setDoc(docRef, {
+                    charToFlag: rule.charToFlag,
+                    suggestion: rule.suggestion || "",
+                    description: rule.description,
+                    enabled: rule.enabled !== undefined ? rule.enabled : true,
+                    type: rule.type || 'char',
+                    isRegex: rule.isRegex || false
+                });
+                console.log("規則已儲存:", rule.charToFlag);
+            } catch (error) {
+                console.error("儲存規則失敗:", error);
+                showMessage(`儲存規則 "${rule.charToFlag}" 失敗: ${error.message}`);
+            }
+        }
+
+        async function updateCharRuleEnabled(ruleId, enabled) {
+            if (!userId) return;
+            try {
+                await setDoc(doc(db, `artifacts/${appId}/users/${userId}/customCharRules`, ruleId), { enabled: enabled }, { merge: true });
+                console.log(`規則 ${ruleId} 的啟用狀態已更新為 ${enabled}`);
+            } catch (error) {
+                console.error("更新規則啟用狀態失敗:", error);
+                showMessage(`更新規則 "${ruleId}" 狀態失敗: ${error.message}`);
+            }
+        }
+
+        async function deleteCharRule(ruleId) {
+            if (!userId || !ruleId) return; // Ensure ruleId is valid
+            try {
+                await deleteDoc(doc(db, `artifacts/${appId}/users/${userId}/customCharRules`, ruleId));
+                console.log("規則已刪除:", ruleId);
+                ruleToDeleteId = null; // Reset after successful deletion
+                closeModal('deleteConfirmModal'); // Close confirmation modal
+            } catch (error) {
+                console.error("刪除規則失敗:", error);
+                showMessage(`刪除規則 "${ruleId}" 失敗: ${error.message}`);
+                ruleToDeleteId = null;
+                closeModal('deleteConfirmModal');
+            }
+        }
+
+        function populateCharOptions() {
+            charOptionsContainer.innerHTML = '';
+            if (!userId) {
+                charOptionsContainer.innerHTML = '<p class="text-sm text-center col-span-full" style="color: hsl(var(--muted-foreground));">請登入以載入或管理您的自訂清單。</p>';
+                return;
+            }
+            if (!userCharList || userCharList.length === 0) {
+                charOptionsContainer.innerHTML = '<p class="text-sm text-center col-span-full" style="color: hsl(var(--muted-foreground));">尚無檢查項目。請新增或等待預設載入。</p>';
+                return;
+            }
+            userCharList.forEach(item => {
+                if (item.type === 'punctuation_style' || item.type === 'punctuation_hw_fw' || item.type === 'spacing') return;
+
+                const div = document.createElement('div');
+                div.className = 'checklist-item';
+                div.title = item.description;
+
+                const controlsDiv = document.createElement('div');
+                controlsDiv.className = 'checklist-item-controls';
+
+                const checkbox = document.createElement('input');
+                checkbox.type = 'checkbox';
+                checkbox.id = `check_${item.id}`;
+                checkbox.value = item.charToFlag;
+                checkbox.checked = item.enabled !== undefined ? item.enabled : true;
+                checkbox.className = 'form-checkbox border-hsl(var(--border)) rounded focus:ring-hsl(var(--ring))';
+                checkbox.style.accentColor = 'hsl(var(--primary))';
+                checkbox.dataset.ruleId = item.id;
+                checkbox.addEventListener('change', (event) => updateCharRuleEnabled(item.id, event.target.checked));
+
+                const deleteBtn = document.createElement('button');
+                deleteBtn.innerHTML = '<i class="fas fa-trash-alt"></i>';
+                deleteBtn.className = 'checklist-delete-btn';
+                deleteBtn.title = "刪除此規則";
+                deleteBtn.onclick = () => {
+                    ruleToDeleteId = item.id; // Store the id of the rule to be deleted
+                    deleteConfirmMessage.textContent = `您確定要刪除規則：「${item.charToFlag} (${item.isRegex ? 'Regex' : '字串'})」嗎？此操作無法復原。`;
+                    openModal('deleteConfirmModal');
+                };
+
+                controlsDiv.appendChild(checkbox);
+                controlsDiv.appendChild(deleteBtn);
+
+                const textDiv = document.createElement('div');
+                textDiv.className = 'checklist-item-text';
+
+                const mainLabel = document.createElement('label');
+                mainLabel.htmlFor = `check_${item.id}`;
+                let labelText = `將「${item.charToFlag}」`;
+                if (item.isRegex) labelText += " (Regex)";
+                if (item.suggestion) labelText += `改為「${item.suggestion}」`;
+                mainLabel.textContent = labelText;
+
+                textDiv.appendChild(mainLabel);
+
+                div.appendChild(controlsDiv);
+                div.appendChild(textDiv);
+                charOptionsContainer.appendChild(div);
+            });
+        }
+
+        addCharBtn.addEventListener('click', () => {
+            if (!userId) { showMessage("請先登入以新增規則。"); return; }
+            const char = newCharToFlagEl.value.trim();
+            const suggestion = newCharSuggestionEl.value.trim();
+            const description = newCharDescriptionEl.value.trim();
+            const isRegex = newIsRegexEl.checked;
+
+            if (!char) { showMessage("「要標示的字/詞」不能為空。"); return; }
+            if (!description) { showMessage("「描述」不能為空。"); return; }
+
+            if (isRegex) {
+                try {
+                    new RegExp(char);
+                } catch (e) {
+                    showMessage(`無效的正則表達式: ${e.message}`);
+                    return;
+                }
+            }
+
+            saveCharRule({ charToFlag: char, suggestion: suggestion, description: description, enabled: true, type: 'char', isRegex: isRegex });
+            newCharToFlagEl.value = ''; newCharSuggestionEl.value = ''; newCharDescriptionEl.value = ''; newIsRegexEl.checked = false;
+        });
+
+        function getTextFromEditable(element) {
+            let text = '';
+            element.childNodes.forEach(node => {
+                if (node.nodeType === Node.TEXT_NODE) {
+                    text += node.textContent;
+                } else if (node.nodeType === Node.ELEMENT_NODE) {
+                    if (node.tagName === 'BR') {
+                        text += '\n';
+                    } else if (node.tagName === 'DIV' && node.parentNode === element) {
+                        if (text.length > 0 && !text.endsWith('\n')) text += '\n';
+                        text += getTextFromEditable(node);
+                        if (!text.endsWith('\n')) text += '\n';
+                    } else if (node.tagName === 'SPAN' && node.classList.contains('highlight')) {
+                        text += node.textContent;
+                    }
+                    else {
+                        text += node.textContent;
+                    }
+                }
+            });
+            return text.replace(/\n+$/, '\n');
+        }
+
+        function processAndHighlightText(isContinuation = false) {
+            const rawText = getTextFromEditable(inputTextEl);
+
+            const previousMatchCount = highlightedMatches.length;
+            const previousCurrentMatchOriginalIndex = (currentMatchIndex !== -1 && currentMatchIndex < previousMatchCount && highlightedMatches[currentMatchIndex]) ? highlightedMatches[currentMatchIndex].originalIndexInText : -1;
+
+            let savedSelection = null;
+            if (document.activeElement === inputTextEl) {
+                const selection = window.getSelection();
+                if (selection.rangeCount > 0) {
+                    savedSelection = selection.getRangeAt(0).cloneRange();
+                }
+            }
+
+            highlightedMatches = [];
+            matchInfoEl.textContent = '';
+            if (!isContinuation) {
+                replaceControlsEl.classList.add('hidden');
+            }
+
+            if (!rawText.trim() && !inputTextEl.querySelector('[data-placeholder-active="true"]')) {
+                inputTextEl.innerHTML = `<span style="color: var(--muted-foreground);" data-placeholder-active="true">${inputTextEl.dataset.placeholder}</span>`;
+                currentMatchIndex = -1;
+                return;
+            } else if (rawText.trim()) {
+                const placeholderSpan = inputTextEl.querySelector('[data-placeholder-active="true"]');
+                if (placeholderSpan) placeholderSpan.remove();
+            }
+
+
+            let tempMatches = [];
+            let matchIdCounter = 0;
+
+            const activeCharRules = userCharList.filter(item => item.type === 'char' && item.enabled && item.charToFlag);
+            if (activeCharRules.length > 0) {
+                const sortedActiveCharRules = [...activeCharRules].sort((a, b) => {
+                    if (a.isRegex && !b.isRegex) return -1;
+                    if (!a.isRegex && b.isRegex) return 1;
+                    if (!a.isRegex && !b.isRegex) return b.charToFlag.length - a.charToFlag.length;
+                    return 0;
+                });
+
+                sortedActiveCharRules.forEach(rule => {
+                    let regex;
+                    try {
+                        if (rule.isRegex) {
+                            regex = new RegExp(rule.charToFlag, 'g');
+                        } else {
+                            regex = new RegExp(rule.charToFlag.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g');
+                        }
+                    } catch (e) {
+                        console.warn(`跳過無效的正則表達式規則 "${rule.charToFlag}": ${e.message}`);
+                        return;
+                    }
+
+                    let ruleMatch;
+                    while ((ruleMatch = regex.exec(rawText)) !== null) {
+                        if (ruleMatch[0].length === 0) {
+                            regex.lastIndex++; continue;
+                        }
+                        const overlaps = tempMatches.some(existingMatch =>
+                        (ruleMatch.index < existingMatch.originalIndexInText + existingMatch.char.length &&
+                            ruleMatch.index + ruleMatch[0].length > existingMatch.originalIndexInText)
+                        );
+                        if (!overlaps) {
+                            let actualSuggestion = rule.suggestion;
+                            if (rule.isRegex && rule.suggestion.includes('$')) {
+                                const tempRegexForSuggestion = new RegExp(rule.charToFlag);
+                                actualSuggestion = ruleMatch[0].replace(tempRegexForSuggestion, rule.suggestion);
+                            }
+                            tempMatches.push({
+                                id: `match-${matchIdCounter++}`,
+                                originalIndexInText: ruleMatch.index,
+                                char: ruleMatch[0],
+                                suggestion: actualSuggestion,
+                                type: 'char',
+                                description: rule.description,
+                                rule: rule
+                            });
+                        }
+                    }
+                });
+            }
+
+            let halfPunctMatch;
+            while ((halfPunctMatch = halfWidthPunctuationRegexGlobal.exec(rawText)) !== null) {
+                const matchedPunct = halfPunctMatch[0];
+                const fullWidthData = halfWidthPunctuationMap[matchedPunct];
+                const overlaps = tempMatches.some(existingMatch =>
+                (halfPunctMatch.index < existingMatch.originalIndexInText + existingMatch.char.length &&
+                    halfPunctMatch.index + matchedPunct.length > existingMatch.originalIndexInText)
+                );
+                if (!overlaps) {
+                    if (fullWidthData) {
+                        tempMatches.push({
+                            id: `match-${matchIdCounter++}`,
+                            originalIndexInText: halfPunctMatch.index,
+                            char: matchedPunct,
+                            suggestion: fullWidthData.full,
+                            type: 'punctuation_hw_fw',
+                            description: `${fullWidthData.description} (應為全形 ${fullWidthData.full})`
+                        });
+                    } else if (matchedPunct === '"' || matchedPunct === "'") {
+                        tempMatches.push({
+                            id: `match-${matchIdCounter++}`,
+                            originalIndexInText: halfPunctMatch.index,
+                            char: matchedPunct,
+                            suggestion: matchedPunct,
+                            type: 'punctuation_hw_fw',
+                            description: `半形引號 (請確認是否應為全形「」或『』)`
+                        });
+                    }
+                }
+            }
+
+            let quotePlacementMatch;
+            while ((quotePlacementMatch = quotePunctuationAfterRegexGlobal.exec(rawText)) !== null) {
+                const closingQuote = quotePlacementMatch[1];
+                const punctuationAfter = quotePlacementMatch[2];
+                const fullMatchedString = closingQuote + punctuationAfter;
+                const overlaps = tempMatches.some(existingMatch =>
+                (quotePlacementMatch.index < existingMatch.originalIndexInText + existingMatch.char.length &&
+                    quotePlacementMatch.index + fullMatchedString.length > existingMatch.originalIndexInText)
+                );
+                if (!overlaps) {
+                    tempMatches.push({
+                        id: `match-${matchIdCounter++}`,
+                        originalIndexInText: quotePlacementMatch.index,
+                        char: fullMatchedString,
+                        suggestion: punctuationAfter + closingQuote,
+                        type: 'punctuation_style',
+                        description: `句末標點「${punctuationAfter}」應在下引號「」」之前`
+                    });
+                }
+            }
+
+            let spacingMatch;
+            while ((spacingMatch = spacingCnEnNumRegexGlobal.exec(rawText)) !== null) {
+                const fullMatch = spacingMatch[0];
+                const charBefore = spacingMatch[1] || spacingMatch[3];
+                const charAfter = spacingMatch[2] || spacingMatch[4];
+                const spaceIndex = spacingMatch.index + charBefore.length;
+                const overlaps = tempMatches.some(existingMatch =>
+                (spaceIndex < existingMatch.originalIndexInText + existingMatch.char.length &&
+                    spaceIndex + 1 > existingMatch.originalIndexInText)
+                );
+                if (!overlaps) {
+                    tempMatches.push({
+                        id: `match-${matchIdCounter++}`,
+                        originalIndexInText: spaceIndex,
+                        char: " ",
+                        suggestion: "",
+                        type: 'spacing',
+                        description: `中英文/數字 (${charBefore} ${charAfter}) 之間不應有空格`
+                    });
+                }
+            }
+
+            highlightedMatches = tempMatches
+                .sort((a, b) => a.originalIndexInText - b.originalIndexInText)
+                .filter(match =>
+                    !ignoredInstances.some(ignored =>
+                        ignored.originalIndexInText === match.originalIndexInText && ignored.char === match.char
+                    )
+                );
+
+            let finalHTML = "";
+            let lastProcessedIndex = 0;
+            const textForHTMLConstruction = rawText.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+
+            highlightedMatches.forEach(match => {
+                if (match.originalIndexInText > lastProcessedIndex) {
+                    finalHTML += textForHTMLConstruction.substring(lastProcessedIndex, match.originalIndexInText).replace(/\n/g, "<br>");
+                }
+
+                const highlightSpan = document.createElement('span');
+                const displayChar = match.char.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/\n/g, "<br>");
+                highlightSpan.innerHTML = displayChar;
+                highlightSpan.className = 'highlight';
+                highlightSpan.dataset.matchId = match.id;
+                highlightSpan.dataset.originalChar = match.char;
+                highlightSpan.dataset.suggestion = match.suggestion;
+                highlightSpan.title = match.description || `建議取代為：${match.suggestion || '無'}`;
+                highlightSpan.onclick = () => {
+                    const navIndex = highlightedMatches.findIndex(h => h.id === match.id);
+                    if (navIndex !== -1) navigateToMatch(navIndex);
+                };
+                finalHTML += highlightSpan.outerHTML;
+                lastProcessedIndex = match.originalIndexInText + match.char.length;
+            });
+
+            if (lastProcessedIndex < rawText.length) {
+                finalHTML += textForHTMLConstruction.substring(lastProcessedIndex).replace(/\n/g, "<br>");
+            }
+
+            inputTextEl.innerHTML = finalHTML || textForHTMLConstruction.replace(/\n/g, "<br>");
+
+            highlightedMatches.forEach(match => {
+                match.element = inputTextEl.querySelector(`.highlight[data-match-id="${match.id}"]`);
+            });
+
+            if (savedSelection && document.activeElement === inputTextEl) {
+                try {
+                    const selection = window.getSelection();
+                    selection.removeAllRanges();
+                    selection.addRange(savedSelection);
+                } catch (e) {
+                    console.warn("無法恢復游標位置:", e);
+                }
+            }
+
+
+            if (highlightedMatches.length > 0) {
+                replaceControlsEl.classList.remove('hidden');
+                let newMatchIndexToNavigate = 0;
+
+                if (isContinuation) {
+                    newMatchIndexToNavigate = currentMatchIndex;
+                    if (newMatchIndexToNavigate >= highlightedMatches.length) {
+                        newMatchIndexToNavigate = highlightedMatches.length > 0 ? highlightedMatches.length - 1 : 0;
+                    }
+                } else if (previousCurrentMatchOriginalIndex !== -1 && previousMatchCount > 0) {
+                    const potentialNextMatch = highlightedMatches.find(m => m.originalIndexInText >= previousCurrentMatchOriginalIndex);
+                    if (potentialNextMatch) {
+                        newMatchIndexToNavigate = highlightedMatches.indexOf(potentialNextMatch);
+                    } else if (highlightedMatches.length > 0) {
+                        newMatchIndexToNavigate = highlightedMatches.length - 1;
+                    }
+                }
+                currentMatchIndex = newMatchIndexToNavigate;
+                navigateToMatch(newMatchIndexToNavigate);
+
+            } else {
+                matchInfoEl.textContent = "未找到符合標示條件的字詞。";
+                currentMatchIndex = -1;
+                if (!isContinuation) {
+                    replaceControlsEl.classList.add('hidden');
+                }
+            }
+        }
+
+        function updateMatchInfo() {
+            if (highlightedMatches.length === 0 || currentMatchIndex === -1 || currentMatchIndex >= highlightedMatches.length) {
+                matchInfoEl.textContent = (highlightedMatches.length > 0 && currentMatchIndex >= highlightedMatches.length) ? "已到列表末尾。" : "未找到符合標示條件的字詞。";
+                replaceWithTextEl.value = '';
+                if (currentMatchIndex >= highlightedMatches.length && highlightedMatches.length > 0) currentMatchIndex = highlightedMatches.length - 1;
+                else if (highlightedMatches.length === 0) currentMatchIndex = -1;
+                return;
+            }
+            matchInfoEl.textContent = `找到 ${highlightedMatches.length} 個符合項目 (目前 ${currentMatchIndex + 1} / ${highlightedMatches.length})`;
+            const currentMatchData = highlightedMatches[currentMatchIndex];
+            if (currentMatchData) {
+                replaceWithTextEl.value = currentMatchData.suggestion !== undefined ? currentMatchData.suggestion : '';
+            } else {
+                replaceWithTextEl.value = '';
+            }
+        }
+
+        function navigateToMatch(index) {
+            if (highlightedMatches.length === 0) {
+                currentMatchIndex = -1;
+                updateMatchInfo(); return;
+            }
+            const prevMatchElement = inputTextEl.querySelector('.current-highlight');
+            if (prevMatchElement) {
+                prevMatchElement.classList.remove('current-highlight');
+            }
+
+            if (index < 0) currentMatchIndex = highlightedMatches.length - 1;
+            else if (index >= highlightedMatches.length) currentMatchIndex = 0;
+            else currentMatchIndex = index;
+
+            const currentMatchData = highlightedMatches[currentMatchIndex];
+            if (currentMatchData && currentMatchData.element) {
+                currentMatchData.element.classList.add('current-highlight');
+                currentMatchData.element.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'nearest' });
+            } else if (currentMatchData) {
+                const newElement = inputTextEl.querySelector(`.highlight[data-match-id="${currentMatchData.id}"]`);
+                if (newElement) {
+                    currentMatchData.element = newElement;
+                    newElement.classList.add('current-highlight');
+                    newElement.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'nearest' });
+                }
+            }
+            updateMatchInfo();
+        }
+
+        prevMatchBtn.addEventListener('click', () => navigateToMatch(currentMatchIndex - 1));
+        nextMatchBtn.addEventListener('click', () => navigateToMatch(currentMatchIndex + 1));
+
+        function getReplacementText(match) {
+            let textToReplaceWith = replaceWithTextEl.value;
+            if (textToReplaceWith === undefined || textToReplaceWith === null || (textToReplaceWith.trim() === "" && match.suggestion !== undefined && match.suggestion.trim() !== "")) {
+                textToReplaceWith = match.suggestion;
+            } else if (textToReplaceWith.trim() === "" && (match.suggestion === undefined || match.suggestion.trim() === "")) {
+                textToReplaceWith = "";
+            }
+            return textToReplaceWith;
+        }
+
+        replaceCurrentBtn.addEventListener('click', () => {
+            if (currentMatchIndex === -1 || currentMatchIndex >= highlightedMatches.length) return;
+
+            const matchToReplace = highlightedMatches[currentMatchIndex];
+            const replacementText = getReplacementText(matchToReplace);
+
+            let originalFullText = getTextFromEditable(inputTextEl);
+
+            const textBefore = originalFullText.substring(0, matchToReplace.originalIndexInText);
+            const textAfter = originalFullText.substring(matchToReplace.originalIndexInText + matchToReplace.char.length);
+
+            const newPlainText = textBefore + replacementText + textAfter;
+            inputTextEl.innerText = newPlainText;
+
+            const replacedCharOriginalIndex = matchToReplace.originalIndexInText;
+            const lengthDiff = replacementText.length - matchToReplace.char.length;
+
+            ignoredInstances = ignoredInstances.map(ignored => {
+                if (ignored.originalIndexInText > matchToReplace.originalIndexInText) {
+                    return { ...ignored, originalIndexInText: ignored.originalIndexInText + lengthDiff };
+                }
+                return ignored;
+            }).filter(ignored => !(ignored.originalIndexInText === matchToReplace.originalIndexInText && replacementText.includes(ignored.char)));
+
+            processAndHighlightText(true);
+
+            if (highlightedMatches.length > 0) {
+                let newIndex = highlightedMatches.findIndex(match => match.originalIndexInText >= replacedCharOriginalIndex);
+                if (newIndex === -1 && highlightedMatches.length > 0) {
+                    newIndex = highlightedMatches.length - 1;
+                } else if (newIndex === -1) {
+                    newIndex = 0;
+                }
+                navigateToMatch(newIndex);
+            } else {
+                currentMatchIndex = -1;
+                updateMatchInfo();
+                replaceControlsEl.classList.add('hidden');
+            }
+        });
+
+        replaceAllBtn.addEventListener('click', () => {
+            if (highlightedMatches.length === 0) return;
+            let currentPlainText = getTextFromEditable(inputTextEl);
+            const globalReplacementOverride = replaceWithTextEl.value;
+            let offset = 0;
+
+            let matchesToProcess = JSON.parse(JSON.stringify(highlightedMatches));
+
+            matchesToProcess.forEach(match => {
+                let textToReplaceWith = match.suggestion;
+                if (globalReplacementOverride !== undefined && globalReplacementOverride.trim() !== "" && match.type === 'char') {
+                    textToReplaceWith = globalReplacementOverride;
+                } else if (globalReplacementOverride !== undefined && globalReplacementOverride.trim() === "" && match.type === 'char' && match.suggestion !== undefined) {
+                    textToReplaceWith = match.suggestion;
+                } else if (globalReplacementOverride !== undefined && globalReplacementOverride.trim() === "" && match.type === 'char' && match.suggestion === undefined) {
+                    textToReplaceWith = "";
+                } else if (match.type !== 'char') {
+                    textToReplaceWith = match.suggestion;
+                }
+
+                const currentIndexInModifiedText = match.originalIndexInText + offset;
+                currentPlainText = currentPlainText.substring(0, currentIndexInModifiedText) + textToReplaceWith + currentPlainText.substring(currentIndexInModifiedText + match.char.length);
+                offset += textToReplaceWith.length - match.char.length;
+            });
+
+            inputTextEl.innerText = currentPlainText;
+            ignoredInstances = [];
+            currentMatchIndex = -1;
+            processAndHighlightText(false);
+        });
+
+        function handleIgnoreCurrent() {
+            if (currentMatchIndex === -1 || currentMatchIndex >= highlightedMatches.length) return;
+
+            const matchToIgnore = highlightedMatches[currentMatchIndex];
+            ignoredInstances.push({
+                originalIndexInText: matchToIgnore.originalIndexInText,
+                char: matchToIgnore.char
+            });
+
+            let nextNavIndexAfterIgnore = currentMatchIndex;
+            processAndHighlightText(true);
+
+            if (highlightedMatches.length === 0) {
+                currentMatchIndex = -1;
+                updateMatchInfo();
+                replaceControlsEl.classList.add('hidden');
+            } else {
+                if (nextNavIndexAfterIgnore >= highlightedMatches.length) {
+                    nextNavIndexAfterIgnore = highlightedMatches.length - 1;
+                }
+                navigateToMatch(nextNavIndexAfterIgnore);
+            }
+        }
+        if (ignoreCurrentBtn) ignoreCurrentBtn.addEventListener('click', handleIgnoreCurrent);
+
+
+        function toggleSelectAll(select) {
+            charOptionsContainer.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+                if (checkbox.checked !== select) {
+                    checkbox.checked = select;
+                    updateCharRuleEnabled(checkbox.dataset.ruleId, select);
+                }
+            });
+        }
+
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) modal.classList.add('active');
+        }
+
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) modal.classList.remove('active');
+        }
+
+        window.closeModal = closeModal;
+
+        window.onclick = function (event) {
+            if (event.target.classList.contains('modal-base')) {
+                if (event.target.id !== 'initialAuthModal') {
+                    event.target.classList.remove('active');
+                }
+            }
+        }
+
+        function debounce(func, delay) {
+            return function (...args) {
+                clearTimeout(debounceTimer);
+                debounceTimer = setTimeout(() => {
+                    func.apply(this, args);
+                }, delay);
+            };
+        }
+
+        const debouncedProcessText = debounce(() => {
+            console.log("Debounced check triggered by input.");
+            ignoredInstances = [];
+            currentMatchIndex = -1;
+            processAndHighlightText(false);
+        }, 500);
+
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            applyTheme(savedTheme);
+            if (themeToggleInput) themeToggleInput.addEventListener('change', handleThemeToggle);
+
+
+            if (currentYearEl) currentYearEl.textContent = new Date().getFullYear();
+            if (appIdDisplayEl) appIdDisplayEl.textContent = `App ID: ${appId}`;
+
+            if (googleSignInBtn) googleSignInBtn.addEventListener('click', handleSignInWithGoogle);
+            if (anonymousSignInBtn) anonymousSignInBtn.addEventListener('click', handleSignInAnonymously);
+            if (signOutBtn) signOutBtn.addEventListener('click', () => {
+                sessionStorage.setItem('userSignedOut', 'true');
+                signOutUser();
+            });
+
+            if (modalSignInGoogleBtn) modalSignInGoogleBtn.addEventListener('click', handleSignInWithGoogle);
+            if (modalSignInAnonymouslyBtn) modalSignInAnonymouslyBtn.addEventListener('click', handleSignInAnonymously);
+
+
+            processTextBtn.addEventListener('click', () => {
+                ignoredInstances = [];
+                currentMatchIndex = -1;
+                processAndHighlightText(false);
+            });
+
+            if (manageRulesBtn) manageRulesBtn.addEventListener('click', () => openModal('rulesManagementModal'));
+            if (closeRulesModalBtn) closeRulesModalBtn.addEventListener('click', () => closeModal('rulesManagementModal'));
+
+            // Delete confirmation modal listeners
+            if (closeDeleteConfirmModalBtn) closeDeleteConfirmModalBtn.addEventListener('click', () => closeModal('deleteConfirmModal'));
+            if (cancelDeleteBtn) cancelDeleteBtn.addEventListener('click', () => {
+                ruleToDeleteId = null; // Clear the id if cancelled
+                closeModal('deleteConfirmModal');
+            });
+            if (confirmDeleteBtn) confirmDeleteBtn.addEventListener('click', () => {
+                if (ruleToDeleteId) {
+                    deleteCharRule(ruleToDeleteId);
+                }
+            });
+
+
+            selectAllBtn.addEventListener('click', () => toggleSelectAll(true));
+            deselectAllBtn.addEventListener('click', () => toggleSelectAll(false));
+
+            const editableDiv = document.getElementById('inputText');
+            const placeholderText = editableDiv.dataset.placeholder;
+
+            function setPlaceholder() {
+                if (editableDiv.innerText.trim() === '' && placeholderText && !editableDiv.querySelector('[data-placeholder-active="true"]')) {
+                    editableDiv.innerHTML = `<span style="color: var(--muted-foreground);" data-placeholder-active="true">${placeholderText}</span>`;
+                }
+            }
+            function clearPlaceholder() {
+                const placeholderSpan = editableDiv.querySelector('span[data-placeholder-active="true"]');
+                if (placeholderSpan && editableDiv.innerText === placeholderText) {
+                    editableDiv.innerHTML = '';
+                    editableDiv.style.color = 'var(--foreground)';
+                }
+            }
+
+            setPlaceholder();
+
+            editableDiv.addEventListener('focus', clearPlaceholder);
+            editableDiv.addEventListener('blur', setPlaceholder);
+
+            editableDiv.addEventListener('input', () => {
+                const placeholderSpan = editableDiv.querySelector('span[data-placeholder-active="true"]');
+                if (placeholderSpan && editableDiv.innerText.trim() !== placeholderText && editableDiv.innerText.trim() !== "") {
+                    placeholderSpan.remove();
+                } else if (!placeholderSpan && editableDiv.innerText.trim() === "" && placeholderText) {
+                    setPlaceholder();
+                }
+                debouncedProcessText();
+            });
+        });
+    </script>
+</body>
+
+</html>
