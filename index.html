@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>繁體中文用字檢查與取代工具</title>
+    <title>統一用字檢查工具</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" href="assets/favicon.png" type="image/png">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <style>
         :root {
@@ -632,7 +633,7 @@
         let unsubscribeUserCharList = null;
         let ignoredInstances = [];
         let debounceTimer;
-        let ruleToDeleteId = null; // To store ID of rule to be deleted
+        let ruleToDeleteId = null;
 
         const defaultCharactersToFlag = [
             { charToFlag: '週([一二三四五六日天])', suggestion: '星期$1', description: '建議將「週X」改為「星期X」 (X為一至日或天)', type: 'char', defaultEnabled: true, isRegex: true },
@@ -660,7 +661,7 @@
             { charToFlag: "畢挺", suggestion: "筆挺", description: "「西裝筆挺」為正確用法，注意「筆」字。常見誤用「畢挺」。", type: "char", defaultEnabled: true, isRegex: false },
             { charToFlag: "禮拜", suggestion: "星期", description: "建議統一用「星期」", type: "char", defaultEnabled: true, isRegex: false },
             { charToFlag: "聖誕", suggestion: "耶誕", description: "建議統一用「耶誕」", type: "char", defaultEnabled: true, isRegex: false }
-            // ... (rest of the defaultCharactersToFlag array from previous version, ensuring isRegex: false is added if not a regex rule)
+            // ... (The rest of the 180+ items from checker.json would be here, each with isRegex: false)
         ];
 
         const halfWidthPunctuationMap = {
@@ -676,7 +677,7 @@
         };
 
         const halfWidthPunctuationRegexGlobal = /[,.?!\(\);:~\/+=`"'_\[\]{}]/g;
-        const quotePunctuationAfterRegexGlobal = /(」)([，。？！；：])/g;
+        // const quotePunctuationAfterRegexGlobal = /(」)([，。？！；：])/g; // Removed this rule
         const spacingCnEnNumRegexGlobal = /([\u4E00-\u9FFF])\s+([a-zA-Z0-9])|([a-zA-Z0-9])\s+([\u4E00-\u9FFF])/g;
 
         const inputTextEl = document.getElementById('inputText');
@@ -940,12 +941,12 @@
         }
 
         async function deleteCharRule(ruleId) {
-            if (!userId || !ruleId) return; // Ensure ruleId is valid
+            if (!userId || !ruleId) return;
             try {
                 await deleteDoc(doc(db, `artifacts/${appId}/users/${userId}/customCharRules`, ruleId));
                 console.log("規則已刪除:", ruleId);
-                ruleToDeleteId = null; // Reset after successful deletion
-                closeModal('deleteConfirmModal'); // Close confirmation modal
+                ruleToDeleteId = null;
+                closeModal('deleteConfirmModal');
             } catch (error) {
                 console.error("刪除規則失敗:", error);
                 showMessage(`刪除規則 "${ruleId}" 失敗: ${error.message}`);
@@ -989,7 +990,7 @@
                 deleteBtn.className = 'checklist-delete-btn';
                 deleteBtn.title = "刪除此規則";
                 deleteBtn.onclick = () => {
-                    ruleToDeleteId = item.id; // Store the id of the rule to be deleted
+                    ruleToDeleteId = item.id;
                     deleteConfirmMessage.textContent = `您確定要刪除規則：「${item.charToFlag} (${item.isRegex ? 'Regex' : '字串'})」嗎？此操作無法復原。`;
                     openModal('deleteConfirmModal');
                 };
@@ -1176,26 +1177,11 @@
                 }
             }
 
-            let quotePlacementMatch;
-            while ((quotePlacementMatch = quotePunctuationAfterRegexGlobal.exec(rawText)) !== null) {
-                const closingQuote = quotePlacementMatch[1];
-                const punctuationAfter = quotePlacementMatch[2];
-                const fullMatchedString = closingQuote + punctuationAfter;
-                const overlaps = tempMatches.some(existingMatch =>
-                (quotePlacementMatch.index < existingMatch.originalIndexInText + existingMatch.char.length &&
-                    quotePlacementMatch.index + fullMatchedString.length > existingMatch.originalIndexInText)
-                );
-                if (!overlaps) {
-                    tempMatches.push({
-                        id: `match-${matchIdCounter++}`,
-                        originalIndexInText: quotePlacementMatch.index,
-                        char: fullMatchedString,
-                        suggestion: punctuationAfter + closingQuote,
-                        type: 'punctuation_style',
-                        description: `句末標點「${punctuationAfter}」應在下引號「」」之前`
-                    });
-                }
-            }
+            // Removed quotePunctuationAfterRegexGlobal logic
+            // let quotePlacementMatch;
+            // while((quotePlacementMatch = quotePunctuationAfterRegexGlobal.exec(rawText)) !== null) {
+            //     // ... (logic for this rule was here)
+            // }
 
             let spacingMatch;
             while ((spacingMatch = spacingCnEnNumRegexGlobal.exec(rawText)) !== null) {
@@ -1534,10 +1520,9 @@
             if (manageRulesBtn) manageRulesBtn.addEventListener('click', () => openModal('rulesManagementModal'));
             if (closeRulesModalBtn) closeRulesModalBtn.addEventListener('click', () => closeModal('rulesManagementModal'));
 
-            // Delete confirmation modal listeners
             if (closeDeleteConfirmModalBtn) closeDeleteConfirmModalBtn.addEventListener('click', () => closeModal('deleteConfirmModal'));
             if (cancelDeleteBtn) cancelDeleteBtn.addEventListener('click', () => {
-                ruleToDeleteId = null; // Clear the id if cancelled
+                ruleToDeleteId = null;
                 closeModal('deleteConfirmModal');
             });
             if (confirmDeleteBtn) confirmDeleteBtn.addEventListener('click', () => {
